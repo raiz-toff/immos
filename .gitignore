@@ -1,0 +1,265 @@
+# ============================================================
+# IMMIGRATION-OPS — .gitignore
+# ============================================================
+#
+# PURPOSE:
+# This file is a security boundary, not just repo hygiene.
+# Immigration data is among the most sensitive personal data
+# that exists — passport details, visa history, refusal records,
+# family situation, financial information, legal history.
+#
+# RULE: If in doubt, gitignore it.
+# The system files (modes, prompts, structure) are public.
+# Everything the user puts INTO the system is private.
+#
+# PHILOSOPHY:
+# The harness is shareable. The data is never shareable.
+# Git tracks the system. The system protects the data.
+# ============================================================
+
+
+# ============================================================
+# REGISTRY — THE MOST SENSITIVE FILE IN THE SYSTEM
+# Contains: passport details, visa history, refusal records,
+# family situation, financial info, legal history.
+# NEVER commit under any circumstance.
+# ============================================================
+registry/registry.yml
+
+
+# ============================================================
+# EVIDENCE INVENTORY
+# Contains: document details, scores, expiry dates, file locations.
+# Personal ammunition store — never commit.
+# ============================================================
+evidence.md
+
+
+# ============================================================
+# CASE TRACKING DATA
+# Contains: active applications, deadlines, document status.
+# User's live immigration situation — never commit.
+# ============================================================
+data/cases.md
+data/*.db
+data/*.tsv
+data/*.csv
+
+
+# ============================================================
+# KNOWLEDGE FILES — FETCHED AT RUNTIME
+# These are fetched fresh from official sources each session.
+# They contain data specific to the user's situation.
+# No value in committing — they regenerate on first launch.
+# ============================================================
+knowledge/us/
+knowledge/ca/
+knowledge/uk/
+knowledge/last_update.json
+knowledge/changelog.md
+
+# Keep the sources index (this is system config, not user data)
+!knowledge/sources.yml
+
+# ============================================================
+# ADDING A NEW COUNTRY — MAINTENANCE RULE
+#
+# When the agent detects a new country in the user's registry
+# (target_country or country_of_residence not yet in the knowledge
+# base), it MUST add the country folder to this file BEFORE
+# creating any knowledge files for that country.
+#
+# The agent handles this automatically in AGENTS.md Step 2a.
+# If you are adding a country manually, follow this pattern:
+#
+#   knowledge/au/    ← Australia
+#   knowledge/de/    ← Germany
+#   knowledge/ie/    ← Ireland
+#   knowledge/nz/    ← New Zealand
+#
+# Always use the 2-letter ISO 3166-1 alpha-2 country code.
+# Also update knowledge/sources.yml and knowledge/last_update.json.
+# Gitignore FIRST. Write knowledge files SECOND. Always.
+# ============================================================
+
+
+# ============================================================
+# USER PROFILE CUSTOMIZATION
+# User's personal preferences and agent notes.
+# Never committed. Survives system updates exactly because
+# it is never in git.
+# ============================================================
+modes/_profile.md
+
+
+# ============================================================
+# GENERATED REPORTS — PERSONAL BY NATURE
+# Audit reports, challenge reports, readiness reports.
+# Generated from registry and evidence — personal output.
+# Keep the .gitkeep so the directory stays in git.
+# ============================================================
+reports/*.md
+reports/*.pdf
+!reports/.gitkeep
+
+
+# ============================================================
+# GENERATED DOCUMENTS — ATTORNEY BRIEFS, COVER LETTERS, ETC.
+# Drafted documents contain personal details from the registry.
+# Never commit — these are the user's private application materials.
+# ============================================================
+output/*
+!output/.gitkeep
+
+
+# ============================================================
+# BUILDER PROMPTS — ONE-TIME USE
+# These are bootstrap prompts used once to build the system.
+# After the system is built they can be archived or deleted.
+# If committed, archive them — they are not sensitive,
+# just not needed in the running system.
+# Uncomment these lines if you want to gitignore them:
+# ============================================================
+# BUILDER_AGENT.md
+# CHERRY_AGENT.md
+# SKILL_REGISTRATION_AGENT.md
+
+
+# ============================================================
+# CLI MEMORY AND LOCAL SETTINGS
+# Agent memory written between sessions is personal.
+# Local settings contain machine-specific config.
+# ============================================================
+
+# Claude Code
+.claude/settings.local.json
+.claude/memory/
+
+# OpenCode
+.opencode/settings.local.json
+.opencode/memory/
+
+# Antigravity CLI
+.antigravitycli/settings.local.json
+.antigravitycli/memory/
+
+# Grok
+.grok/settings.local.json
+.grok/memory/
+
+# Kimi
+.kimi/settings.local.json
+.kimi/memory/
+
+# Qwen
+.qwen/settings.local.json
+.qwen/memory/
+
+# Gemini CLI
+.gemini/settings.local.json
+.gemini/memory/
+
+
+# ============================================================
+# SECRETS — NEVER COMMIT
+# API keys, tokens, credentials.
+# Use .env.example as the template. Never commit .env.
+# ============================================================
+.env
+**/.env.local
+**/.env*.local
+*.key
+*.pem
+
+
+# ============================================================
+# BACKUP FILES
+# Written by integrity scripts (normalize, dedup).
+# Ephemeral — never commit.
+# ============================================================
+*.bak
+*.backup
+*.orig
+
+
+# ============================================================
+# SYSTEM HYGIENE
+# ============================================================
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Video and large media (never should be here)
+*.mov
+*.mp4
+*.avi
+*.mkv
+
+# Node (if any scripts use it)
+node_modules/
+bun.lock
+package-lock.json
+**/*.tsbuildinfo
+
+# Python (if any scripts use it)
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+
+# Resolved prompts (ephemeral, created during startup)
+.resolved-prompt-*
+
+# Planning scratchpad (local only)
+plan/
+scratch/
+notes/
+
+
+# ============================================================
+# WHAT IS NOT GITIGNORED — WHAT THE REPO TRACKS
+# ============================================================
+#
+# AGENTS.md               — master brain (public system file)
+# CLAUDE.md               — Claude Code wrapper
+# GEMINI.md               — Gemini wrapper
+# CODEX.md                — Codex wrapper
+# README.md               — documentation
+# modes/_shared.md        — character file (system logic)
+# modes/intake.md         — mode files (system logic)
+# modes/gap.md            — mode files (system logic)
+# modes/timeline.md       — mode files (system logic)
+# modes/pathway.md        — mode files (system logic)
+# modes/draft.md          — mode files (system logic)
+# modes/rfe.md            — mode files (system logic)
+# modes/scan.md           — mode files (system logic)
+# modes/batch.md          — mode files (system logic)
+# modes/alert.md          — mode files (system logic)
+# modes/verify.md         — mode files (system logic)
+# modes/evidence.md       — mode files (system logic)
+# modes/audit.md          — mode files (system logic)
+# modes/readiness.md      — mode files (system logic)
+# modes/attorney.md       — mode files (system logic)
+# modes/challenge.md      — mode files (system logic)
+# .agents/skills/         — skill registration (system logic)
+# .claude/skills/         — skill registration (system logic)
+# .antigravitycli/skills/ — skill registration (system logic)
+# .grok/skills/           — skill registration (system logic)
+# .kimi/skills/           — skill registration (system logic)
+# .qwen/skills/           — skill registration (system logic)
+# .opencode/commands/     — skill registration (system logic)
+# knowledge/sources.yml   — official source index (system logic)
+# registry/               — directory only (registry.yml ignored)
+# data/                   — directory only (cases.md ignored)
+# reports/                — directory only (reports ignored)
+# output/                 — directory only (output ignored)
+# docs/                   — all documentation
+# *.gitkeep files         — preserve empty directories in git
+#
+# ============================================================

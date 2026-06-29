@@ -1,0 +1,364 @@
+# ============================================================
+# IMMIGRATION-OPS — Official Knowledge Sources
+# Version 1.0.1 | Authoritative Source Index
+# ============================================================
+#
+# This file is the lookup table the running agent uses to know
+# WHERE to fetch immigration data. It does not store data itself.
+# It stores URLs, fetch methods, and freshness requirements.
+#
+# FETCH METHODS:
+#   web_fetch  = Direct HTTP fetch of the page at the URL
+#   web_search = Search engine query using the URL as the site/topic anchor
+#
+# MAX_AGE_HOURS:
+#   How long a successful fetch remains VERIFIED before going STALE.
+#   See AGENTS.md Section 5 for the full freshness tier table.
+#
+# FETCH FAILURE HIERARCHY:
+# 1. Try primary url
+# 2. If fails → try fallback_url
+# 3. If fails → web search using fallback_query
+# 4. If all fail → use last_known_good cached data
+#    (agent marks response as STALE with fetch_failed note)
+#
+# last_known_good is written by the startup routine after
+# every successful fetch. Never written manually.
+#
+# When a source URL permanently moves, update url: and fallback_url:
+# here and record the change in CHANGELOG.md.
+#
+# This file is READ ONLY at runtime except for:
+# - url: field update when a working URL is found via web search
+# - last_known_good: written by startup routine after successful fetch
+# ============================================================
+
+sources:
+
+  # ----------------------------------------------------------
+  # UNITED STATES
+  # Primary authority: U.S. Citizenship and Immigration Services (USCIS)
+  # Secondary: U.S. Department of State (for visa bulletin and consular info)
+  # ----------------------------------------------------------
+  us:
+
+    # USCIS publishes processing times by form type and field office.
+    # Times vary significantly — always check for the specific form
+    # and the specific USCIS office handling the case.
+    processing_times:
+      url: "https://egov.uscis.gov/processing-times/"
+      fallback_url: "https://www.uscis.gov/tools/check-case-processing-times"
+      fallback_query: "USCIS processing times current 2026 site:uscis.gov"
+      fetch_method: web_fetch
+      max_age_hours: 24
+      last_known_good: ~
+      notes: "Select form type and field office for accurate times. National averages are less useful than office-specific data."
+
+    # USCIS filing fees. Subject to change — a major fee rule update
+    # took effect in 2024. Always verify current fee schedule.
+    fees:
+      url: "https://www.uscis.gov/forms/filing-fees"
+      fallback_url: "https://www.uscis.gov/forms/filing-fees/additional-information-on-filing-fees"
+      fallback_query: "USCIS filing fees current fee schedule site:uscis.gov"
+      fetch_method: web_fetch
+      max_age_hours: 168
+      last_known_good: ~
+      notes: "Check for recent fee rule changes. The 2024 USCIS fee rule significantly changed many fees."
+
+    # Official USCIS forms and current edition dates.
+    # Only USCIS-issued forms are accepted — third-party versions are rejected.
+    # Edition date appears in bottom-left corner of each form.
+    forms:
+      url: "https://www.uscis.gov/forms"
+      fallback_url: "https://www.uscis.gov/forms/all-forms"
+      fallback_query: "USCIS forms current edition dates site:uscis.gov"
+      fetch_method: web_fetch
+      max_age_hours: 168
+      last_known_good: ~
+      notes: "Always verify current edition date before advising user. Outdated form editions are rejected outright."
+
+    # USCIS Policy Manual — the authoritative source for adjudication standards.
+    # Policy updates are published here when guidance changes.
+    policy_manual:
+      url: "https://www.uscis.gov/policy-manual"
+      fallback_url: "https://www.uscis.gov/laws-and-policy/policy-manual"
+      fallback_query: "USCIS policy manual current guidance site:uscis.gov"
+      fetch_method: web_fetch
+      max_age_hours: 168
+      last_known_good: ~
+      notes: "The Policy Manual is the definitive adjudication reference. More authoritative than CFR for day-to-day guidance."
+
+    # Alerts and updates to the USCIS Policy Manual.
+    # These are published as new guidance is issued and represent
+    # the most current changes to adjudication policy.
+    policy_notices:
+      url: "https://www.uscis.gov/news/policy-manual-updates"
+      fallback_url: "https://www.uscis.gov/news/alerts"
+      fallback_query: "USCIS policy manual updates notices 2026 site:uscis.gov"
+      fetch_method: web_search
+      max_age_hours: 24
+      last_known_good: ~
+      notes: "Fetch most recent 30 days of updates. Policy notices can change processing standards immediately upon publication."
+
+    # The Visa Bulletin determines when employment-based and family-based
+    # green card applicants can file based on their priority date and
+    # country of birth. Published monthly by the State Department.
+    visa_bulletin:
+      url: "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html"
+      fallback_url: "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/2026/visa-bulletin-for-2026.html"
+      fallback_query: "US visa bulletin current month 2026 priority dates site:state.gov"
+      fetch_method: web_fetch
+      max_age_hours: 24
+      last_known_good: ~
+      notes: "New bulletin published first week of each month. Check both Final Action Dates and Dates for Filing. Country-specific retrogression affects EB categories significantly."
+
+    # USCIS alerts page for system-wide announcements, office closures,
+    # and procedural changes affecting applications in processing.
+    alerts:
+      url: "https://www.uscis.gov/news/alerts"
+      fallback_url: "https://www.uscis.gov/newsroom"
+      fallback_query: "USCIS alerts announcements 2026 site:uscis.gov"
+      fetch_method: web_fetch
+      max_age_hours: 24
+      last_known_good: ~
+      notes: "Check for temporary policy suspensions or extensions (common during government transitions)."
+
+    # The USCIS Policy Manual section on nonimmigrant workers.
+    # Covers H-1B, L-1, O-1, TN, and other employment-based categories.
+    nonimmigrant_workers:
+      url: "https://www.uscis.gov/policy-manual/volume-2"
+      fallback_url: "https://www.uscis.gov/working-in-the-united-states"
+      fallback_query: "USCIS nonimmigrant worker visa requirements H-1B L-1 O-1 site:uscis.gov"
+      fetch_method: web_fetch
+      max_age_hours: 168
+      last_known_good: ~
+      notes: "Volume 2 covers nonimmigrant classifications. Use for adjudication standards on specific visa types."
+
+    # DOL Labor Condition Application requirements and prevailing wage data.
+    # Required for H-1B petitions — employer must first file an LCA.
+    lca_requirements:
+      url: "https://www.dol.gov/agencies/eta/foreign-labor/programs/h-1b"
+      fallback_url: "https://flag.dol.gov/programs/H-1B"
+      fallback_query: "DOL H-1B LCA labor condition application requirements prevailing wage site:dol.gov"
+      fetch_method: web_fetch
+      max_age_hours: 168
+      last_known_good: ~
+      notes: "LCA is prerequisite to H-1B petition. Prevailing wage level determines minimum salary requirement."
+
+
+  # ----------------------------------------------------------
+  # CANADA
+  # Primary authority: Immigration, Refugees and Citizenship Canada (IRCC)
+  # ----------------------------------------------------------
+  ca:
+
+    # IRCC processing times by application type.
+    # Canada has multiple streams — Express Entry is separate from
+    # paper-based PNP streams, which are separate from family class.
+    processing_times:
+      url: "https://www.canada.ca/en/immigration-refugees-citizenship/services/application/check-processing-times.html"
+      fallback_url: "https://www.ircc.canada.ca/english/information/times/index.asp"
+      fallback_query: "IRCC immigration processing times current 2026 site:canada.ca"
+      fetch_method: web_fetch
+      max_age_hours: 24
+      last_known_good: ~
+      notes: "Filter by specific application type for accuracy. Express Entry times differ from PNP-specific streams."
+
+    # IRCC fee schedule for all application types.
+    fees:
+      url: "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/fees.html"
+      fallback_url: "https://www.canada.ca/en/immigration-refugees-citizenship/services/application/fees.html"
+      fallback_query: "IRCC immigration fees 2026 permanent residence work permit site:canada.ca"
+      fetch_method: web_fetch
+      max_age_hours: 168
+      last_known_good: ~
+      notes: "Fees are in CAD. Right of Permanent Residence Fee (RPRF) is separate from processing fee."
+
+    # IRCC forms and guides for all application categories.
+    forms:
+      url: "https://www.canada.ca/en/immigration-refugees-citizenship/services/application/application-forms-guides.html"
+      fallback_url: "https://www.canada.ca/en/immigration-refugees-citizenship/services/application.html"
+      fallback_query: "IRCC application forms guides current versions site:canada.ca"
+      fetch_method: web_fetch
+      max_age_hours: 168
+      last_known_good: ~
+      notes: "Always use forms from IRCC's official site. Form numbers and versions change periodically."
+
+    # Express Entry draw results — history of all Invitations to Apply (ITAs)
+    # issued in rounds, with minimum CRS scores and number of invitations.
+    draws:
+      url: "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/submit-profile/rounds-invitations/results-previous.html"
+      fallback_url: "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/submit-profile/rounds-invitations.html"
+      fallback_query: "Express Entry draw results CRS score 2026 site:canada.ca"
+      fetch_method: web_fetch
+      max_age_hours: 24
+      last_known_good: ~
+      notes: "Draws happen roughly every two weeks. Category-based draws select specific NOC groups. Check both all-program and category-specific draw history."
+
+    # Current minimum CRS score and draw trends.
+    # Used to advise Express Entry candidates on their likelihood
+    # of receiving an Invitation to Apply.
+    express_entry_current:
+      url: "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/submit-profile/rounds-invitations.html"
+      fallback_url: "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry.html"
+      fallback_query: "Express Entry current CRS cutoff score latest draw 2026 site:canada.ca"
+      fetch_method: web_fetch
+      max_age_hours: 24
+      last_known_good: ~
+      notes: "Check most recent draw type and score. Category-based selection draws (STEM, French language, healthcare, trades) have separate score trends."
+
+    # IRCC operational instructions and program guidance.
+    # The policy manual equivalent for Canadian immigration.
+    policy_notices:
+      url: "https://www.canada.ca/en/immigration-refugees-citizenship/corporate/mandate/policies-operational-instructions-agreements/operational-instructions.html"
+      fallback_url: "https://www.canada.ca/en/immigration-refugees-citizenship/corporate/transparency/access-information-privacy/reports/annual/2024.html"
+      fallback_query: "IRCC operational instructions policy bulletins 2026 site:canada.ca"
+      fetch_method: web_search
+      max_age_hours: 24
+      last_known_good: ~
+      notes: "Operational bulletins can change processing standards. Check for recent bulletins affecting the user's specific program."
+
+    # Provincial Nominee Programs — each province runs its own streams.
+    # Streams, requirements, and draws vary by province.
+    pnp_overview:
+      url: "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees.html"
+      fallback_url: "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/works.html"
+      fallback_query: "Canada provincial nominee program PNP streams requirements 2026 site:canada.ca"
+      fetch_method: web_fetch
+      max_age_hours: 168
+      last_known_good: ~
+      notes: "Each province has its own PNP site with current streams and requirements. Use this as the entry point, then follow to specific provincial programs."
+
+    # NOC (National Occupational Classification) lookup.
+    # Required for Express Entry and most work permit applications.
+    noc_lookup:
+      url: "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/eligibility/find-national-occupation-code.html"
+      fallback_url: "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/eligibility.html"
+      fallback_query: "Canada NOC 2021 TEER occupation code lookup site:canada.ca"
+      fetch_method: web_fetch
+      max_age_hours: 168
+      last_known_good: ~
+      notes: "Canada moved to NOC 2021 (TEER system). Ensure user has the correct TEER category for their occupation."
+
+    # CLB (Canadian Language Benchmark) requirements and test equivalencies.
+    # Required for most Express Entry programs. IELTS and CELPIP are accepted.
+    language_requirements:
+      url: "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/eligibility/language-requirements.html"
+      fallback_url: "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/eligibility.html"
+      fallback_query: "IRCC Express Entry language requirements CLB IELTS CELPIP 2026 site:canada.ca"
+      fetch_method: web_fetch
+      max_age_hours: 168
+      last_known_good: ~
+      notes: "CLB requirements differ by program (FSW requires CLB 7, CEC varies). Test scores must be less than 2 years old."
+
+
+  # ----------------------------------------------------------
+  # UNITED KINGDOM
+  # Primary authority: UK Visas and Immigration (UKVI), Home Office
+  # ----------------------------------------------------------
+  uk:
+
+    # UKVI processing times by visa type and route.
+    # UK processing times are published in weeks or months,
+    # not individual application tracking like US/Canada.
+    processing_times:
+      url: "https://www.gov.uk/government/publications/visa-processing-times"
+      fallback_url: "https://www.gov.uk/guidance/visa-decision-waiting-times-applications-outside-the-uk"
+      fallback_query: "UK visa processing times current 2026 site:gov.uk"
+      fetch_method: web_fetch
+      max_age_hours: 168
+      last_known_good: ~
+      notes: "Times published by visa type. Priority processing available for some routes at additional cost."
+
+    # UK visa fees — published as a transparency dataset.
+    # Fee increases are common and often take effect with little notice.
+    fees:
+      url: "https://www.gov.uk/government/publications/visa-fees-transparency-data"
+      fallback_url: "https://www.gov.uk/visa-fees"
+      fallback_query: "UK visa fees current 2026 skilled worker site:gov.uk"
+      fetch_method: web_fetch
+      max_age_hours: 168
+      last_known_good: ~
+      notes: "Fees are in GBP. Immigration Health Surcharge (IHS) is separate and calculated per year of stay."
+
+    # Immigration Health Surcharge calculator and rates.
+    # Mandatory for most non-EEA applicants — charged per year of visa.
+    ihs:
+      url: "https://www.gov.uk/healthcare-immigration-application"
+      fallback_url: "https://www.gov.uk/healthcare-immigration-application/how-much-pay"
+      fallback_query: "UK immigration health surcharge IHS rate 2026 site:gov.uk"
+      fetch_method: web_fetch
+      max_age_hours: 168
+      last_known_good: ~
+      notes: "IHS is charged per year of leave, not per application. Significant additional cost — always include in total fee calculation."
+
+    # Skilled Worker visa salary thresholds and eligible occupations.
+    # Salary thresholds are updated periodically by the Home Office.
+    # The 2024 increases significantly raised minimum salary requirements.
+    salary_thresholds:
+      url: "https://www.gov.uk/skilled-worker-visa/your-job"
+      fallback_url: "https://www.gov.uk/skilled-worker-visa"
+      fallback_query: "UK skilled worker visa salary threshold minimum 2026 site:gov.uk"
+      fetch_method: web_fetch
+      max_age_hours: 168
+      last_known_good: ~
+      notes: "Thresholds updated periodically. Check after any Home Office announcement. The general threshold and occupation-specific going rates both apply — the higher figure governs."
+
+    # Full Immigration Rules — the legal text governing all immigration decisions.
+    # More comprehensive than guidance pages and legally authoritative.
+    immigration_rules:
+      url: "https://www.gov.uk/guidance/immigration-rules"
+      fallback_url: "https://www.gov.uk/government/collections/immigration-rules"
+      fallback_query: "UK immigration rules statement of changes 2026 site:gov.uk"
+      fetch_method: web_search
+      max_age_hours: 168
+      last_known_good: ~
+      notes: "Search for specific rule changes by part number (e.g., Appendix Skilled Worker). Statement of Changes is published when rules are amended."
+
+    # Home Office operational guidance for visa caseworkers.
+    # Shows how rules are applied in practice — often more useful than
+    # the Immigration Rules text for understanding real-world adjudication.
+    policy_notices:
+      url: "https://www.gov.uk/government/collections/visas-and-immigration-operational-guidance"
+      fallback_url: "https://www.gov.uk/government/organisations/uk-visas-and-immigration"
+      fallback_query: "UK Home Office UKVI caseworker guidance operational instructions 2026 site:gov.uk"
+      fetch_method: web_search
+      max_age_hours: 24
+      last_known_good: ~
+      notes: "Caseworker guidance is the best indicator of how rules are applied. Check for recent guidance updates affecting the user's route."
+
+    # Shortage occupation list and sponsorship requirements.
+    # Occupations on this list historically received reduced salary thresholds.
+    # Check current status as this list is reviewed periodically.
+    shortage_occupations:
+      url: "https://www.gov.uk/guidance/skilled-worker-visa-shortage-occupations"
+      fallback_url: "https://www.gov.uk/skilled-worker-visa/your-job"
+      fallback_query: "UK immigration salary list shortage occupations 2026 site:gov.uk"
+      fetch_method: web_fetch
+      max_age_hours: 168
+      last_known_good: ~
+      notes: "The shortage occupation list was abolished in 2024 and replaced with the Immigration Salary List. Verify current status."
+
+    # Sponsor licence requirements for UK employers.
+    # Employers must hold a sponsor licence before issuing Certificates
+    # of Sponsorship to prospective Skilled Worker visa holders.
+    sponsor_licence:
+      url: "https://www.gov.uk/uk-visa-sponsorship-employers"
+      fallback_url: "https://www.gov.uk/sponsor-skilled-workers"
+      fallback_query: "UK sponsor licence requirements skilled worker employer 2026 site:gov.uk"
+      fetch_method: web_fetch
+      max_age_hours: 168
+      last_known_good: ~
+      notes: "Check if the user's prospective employer already holds a sponsor licence before advising on the Skilled Worker route."
+
+    # Points-based system requirements.
+    # The UK uses a points-based system — applicants must score sufficient
+    # points across mandatory and tradeable characteristics.
+    points_based_overview:
+      url: "https://www.gov.uk/guidance/new-immigration-system-what-you-need-to-know"
+      fallback_url: "https://www.gov.uk/browse/visas-immigration/work-visas"
+      fallback_query: "UK points based immigration system requirements 2026 site:gov.uk"
+      fetch_method: web_fetch
+      max_age_hours: 168
+      last_known_good: ~
+      notes: "Overview of the points-based system. Cross-reference with specific route guidance for detailed requirements."
