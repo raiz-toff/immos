@@ -91,55 +91,50 @@ Execute silently. Do not narrate this to the user unless changes are
 found that affect them. This is maintenance, not a feature.
 
 ```
-BEFORE fetching — New Country Detection:
+BEFORE fetching — New Country Detection (pack-based):
 
   Check registry/registry.yml for target_country and
   country_of_residence values. For each country found:
 
-  IF no knowledge/[code]/ directory exists for that country:
+  IF no knowledge/countries/[code]/pack.yml exists for that country:
 
-    1. Add the following line to .gitignore under the
-       "ADDING A NEW COUNTRY" section:
-       knowledge/[code]/
-       (Use ISO 3166-1 alpha-2 two-letter country code)
-
-    2. Create the knowledge/[code]/ directory.
-
-    3. Add the country's official sources to knowledge/sources.yml
-       using the same structure as the us / ca / uk entries.
-
-    4. Add a country block to knowledge/last_update.json
-       with all domains set to status: "NEVER_FETCHED"
-       and fetched_at: "1970-01-01T00:00:00Z"
-
-  CRITICAL ORDER: .gitignore FIRST. Directory and files SECOND.
-  Never write knowledge files before the folder is gitignored.
+    Do NOT answer country-specific questions for it from memory.
+    Route to modes/country.md to BOOTSTRAP a pack:
+      - web-confirm the immigration authority + government domain
+      - fetch-confirm each of the five source URLs before writing
+      - fill terminology from the authority's own pages (UNVERIFIED if not)
+      - write pack at status: draft
+    The cache dir knowledge/countries/[code]/cache/ is already gitignored
+    (pack.yml itself is committed — it holds no personal data).
+    Never fabricate a pack from training data — every URL must fetch once.
 
 FOR EACH stale knowledge domain:
 
-  1. Identify the correct official source for this domain
-     and this user's relevant country (see Section 5 for sources).
+  1. Open knowledge/countries/[code]/pack.yml and read this domain's
+     `sources:` entry (url / fallback_url / fallback_query / last_known_good).
 
   2. Fetch current data following the failure hierarchy:
 
      ATTEMPT 1 — Primary URL
-     Fetch from sources.yml → url field for this domain.
-     If successful: write data, update last_known_good, continue.
+     Fetch from the pack's sources.[domain].url.
+     Confirm the fetched page's host is in the pack's official_domains.
+     If successful: write a fact record, update last_known_good, continue.
 
      ATTEMPT 2 — Fallback URL
-     If primary fails: fetch from sources.yml → fallback_url.
-     If successful: write data, update last_known_good, continue.
+     If primary fails: fetch from the pack's sources.[domain].fallback_url.
+     If successful: write fact record, update last_known_good, continue.
      Note in changelog: primary URL failed, fallback used.
 
      ATTEMPT 3 — Web Search
-     If fallback fails: run a web search using sources.yml →
-     fallback_query. Find the current official page, fetch it.
-     If successful: write data, update last_known_good, continue.
+     If fallback fails: run a web search using the pack's
+     sources.[domain].fallback_query. Confirm the result host is in
+     official_domains, then fetch it.
+     If successful: write fact record, update last_known_good, continue.
      Note in changelog: both URLs failed, found via search.
-     Also update sources.yml url field with the working URL found.
+     Also update the pack's sources.[domain].url with the working URL found.
 
      ATTEMPT 4 — Last Known Good
-     If all three fail: read sources.yml → last_known_good.
+     If all three fail: read the pack's sources.[domain].last_known_good.
      If a cached value exists: use it with STALE confidence tier.
      Mark domain as FETCH_FAILED in last_update.json.
      In the session, note which domains are running on cached data.
@@ -151,10 +146,10 @@ FOR EACH stale knowledge domain:
      "[Country] [domain] data is unavailable — all sources failed.
      For questions about this, verify directly at [official site]."
 
-  3. Compare fetched data against knowledge/[domain].yml
+  3. Compare fetched data against knowledge/countries/[code]/cache/[domain].yml
 
   4. IF changes detected:
-     - Write updated data to knowledge/[domain].yml
+     - Write the fact record to knowledge/countries/[code]/cache/[domain].yml
      - Record the diff in knowledge/changelog.md with timestamp
      - Identify which of the user's active pathways are affected
      - Flag these for surfacing in STEP 4
@@ -798,34 +793,37 @@ Processing times for this category are currently 12–18 months
 
 ---
 
-### Official Sources by Country
+### Official Sources — read from country packs
 
-**United States**
-| Domain | Source |
-|--------|--------|
-| Processing times | uscis.gov — check processing times |
-| Filing fees | uscis.gov/forms/filing-fees |
-| Forms and instructions | uscis.gov/forms |
-| Policy manual | uscis.gov/policy-manual |
-| Policy updates | uscis.gov/news/policy-manual-updates |
-| Visa bulletins | travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html |
+As of Phase 3, source URLs are NOT hardcoded here. Each supported country has
+a pack at `knowledge/countries/<code>/pack.yml` whose `sources:` block holds
+the five canonical domains — `processing_times`, `fees`, `forms`,
+`rules_guidance`, `policy_updates` — each with `url`, `fallback_url`,
+`fallback_query`, and `last_known_good`.
 
-**Canada**
-| Domain | Source |
-|--------|--------|
-| Processing times | canada.ca/en/immigration-refugees-citizenship/services/application/check-processing-times |
-| Fees | canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/fees |
-| Forms | canada.ca/en/immigration-refugees-citizenship/services/application/application-forms-guides |
-| Operational instructions | canada.ca/en/immigration-refugees-citizenship/corporate/mandate/policies-operational-instructions-agreements |
-| Express Entry draws | canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry |
+- To fetch: open the pack, read the domain's cascade (url → fallback_url →
+  fallback_query → last_known_good). `knowledge/sources.yml` is now a thin
+  index of installed packs and their status.
+- `official_domains` in each pack is the allow-list: a source outside it is
+  never citable as official, no matter how good.
+- Terminology (RFE vs. procedural fairness letter vs. request for further
+  information; refusal term; status document; sponsor term) also lives in the
+  pack, so responses speak the country's own language.
+- No pack for the target country → do NOT answer country-specific questions
+  from memory. Route to `modes/country.md` to bootstrap a pack first (STEP 2a).
 
-**United Kingdom**
-| Domain | Source |
-|--------|--------|
-| Processing times | gov.uk/government/publications/visa-processing-times |
-| Fees | gov.uk/government/publications/visa-fees-transparency-data |
-| Guidance | gov.uk/browse/visas-immigration |
-| Operational guidance | gov.uk/government/collections/visas-and-immigration-operational-guidance |
+### Fact record (stored in knowledge/countries/<code>/cache/<domain>.yml)
+
+- claim: one sentence, in your words
+- value: the number/date/rule text
+- url: the exact page fetched
+- anchor: ≤ 12 words quoted from the page locating the fact
+- fetched_at: timestamp
+- effective: the rule's own effective/valid date if the page states one —
+  a fee fetched today may have changed yesterday; effective date beats
+  fetch date when they differ, and the citation shows the effective date.
+The inline citation [VERIFIED | source | date] must trace to a fact record.
+No record → the claim is UNVERIFIED and is not stated as fact.
 | Immigration rules | gov.uk/guidance/immigration-rules |
 
 ---
@@ -856,11 +854,12 @@ Never load two full mode contexts simultaneously.
 |---|---|---|
 | First session, registry empty or incomplete | Onboarding | `modes/intake.md` |
 | "What documents do I need?" / "Am I missing anything?" | Gap Analysis | `modes/gap.md` |
-| Form number in input (I-485, IMM 5669, etc.) | Gap Analysis | `modes/gap.md` |
+| Any official form/reference number in input (I-485, IMM 5669, VAF1A, etc.) | Gap Analysis | `modes/gap.md` |
 | "How long will this take?" / "What is my deadline?" | Timeline | `modes/timeline.md` |
 | "What visa should I apply for?" / "What are my options?" | Pathway | `modes/pathway.md` |
 | "Write me a cover letter" / "Draft a personal statement" | Drafting | `modes/draft.md` |
-| "I received a refusal" / "I got an RFE" / "They rejected me" | RFE Response | `modes/rfe.md` |
+| "They asked for more documents" / "I was refused" / "procedural fairness letter" / "RFE" / "NOID" / any local setback term | Setback Response | `modes/setback.md` |
+| Target country has no installed pack | Country Bootstrap | `modes/country.md` |
 | "Check if anything changed" / "Any news on my visa?" | Scan | `modes/scan.md` |
 | Multiple pathways to compare simultaneously | Batch | `modes/batch.md` |
 | Deadline alert / rule change notification | Alert | `modes/alert.md` |

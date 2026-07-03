@@ -1,0 +1,30 @@
+# Country pack — United States
+# Migrated from knowledge/sources.yml (Phase 3). URLs carried over from the
+# existing source index; they have NOT been re-fetched in this migration, so
+# last_known_good stays null and status stays draft. Terminology below is
+# marked UNVERIFIED until a country-mode fetch pass confirms each term against
+# the authority's own pages (see modes/country.md). A pack is never populated
+# from training data alone — graduate to community/verified only after fetch.
+country: "us"
+authority: "USCIS"     # + U.S. Department of State for visa bulletin / consular
+official_domains: ["uscis.gov", "travel.state.gov", "dol.gov", "state.gov"]
+status: draft
+built: "2026-07-03 (manual migration from sources.yml; URLs not re-fetched)"
+sources:
+  processing_times: {url: "https://egov.uscis.gov/processing-times/", fallback_url: "https://www.uscis.gov/tools/check-case-processing-times", fallback_query: "USCIS processing times current site:uscis.gov", last_known_good: null}
+  fees:              {url: "https://www.uscis.gov/forms/filing-fees", fallback_url: "https://www.uscis.gov/forms/filing-fees/additional-information-on-filing-fees", fallback_query: "USCIS filing fees current fee schedule site:uscis.gov", last_known_good: null}
+  forms:             {url: "https://www.uscis.gov/forms", fallback_url: "https://www.uscis.gov/forms/all-forms", fallback_query: "USCIS forms current edition dates site:uscis.gov", last_known_good: null}
+  rules_guidance:    {url: "https://www.uscis.gov/policy-manual", fallback_url: "https://www.uscis.gov/laws-and-policy/policy-manual", fallback_query: "USCIS policy manual current guidance site:uscis.gov", last_known_good: null}
+  policy_updates:    {url: "https://www.uscis.gov/news/policy-manual-updates", fallback_url: "https://www.uscis.gov/news/alerts", fallback_query: "USCIS policy manual updates notices site:uscis.gov", last_known_good: null}
+terminology:
+  request_for_more_evidence: "Request for Evidence (RFE)"   # UNVERIFIED — confirm at uscis.gov glossary
+  refusal: "denial"                                         # UNVERIFIED
+  appeal_or_review_paths: ["Motion to Reopen/Reconsider (Form I-290B)", "Administrative Appeals Office (AAO)"]  # UNVERIFIED — names only, no strategy
+  status_document: "I-94 / visa / Green Card (Form I-551)"  # UNVERIFIED
+  sponsor_term: "petitioner / sponsor"                      # UNVERIFIED
+quirks:
+  - "Notice of Intent to Deny (NOID) and 221(g) administrative processing are distinct from an RFE. [UNVERIFIED]"
+  - "Employment/family green-card filing gated by the monthly State Dept visa bulletin priority dates. [UNVERIFIED]"
+not_covered:
+  - "State-level and consular-post-specific procedures"
+  - "Asylum / humanitarian adjudication specifics (attorney/nonprofit territory)"

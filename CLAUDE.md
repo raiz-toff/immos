@@ -17,7 +17,10 @@ Everything in `AGENTS.md` applies fully here.
 /immigrate timeline                → runs timeline calculation
 /immigrate pathway                 → runs visa pathway assessment
 /immigrate draft [type]            → runs document drafting
-/immigrate rfe                     → runs RFE / refusal response
+/immigrate setback                 → runs setback response (RFE / refusal /
+                                     procedural-fairness / NOID — any country)
+/immigrate rfe                     → alias for setback (kept for US users)
+/immigrate country [name]          → bootstrap a knowledge pack for a country
 /immigrate scan                    → runs portal scan for changes
 /immigrate batch                   → runs multi-pathway comparison
 /immigrate alert                   → checks and surfaces all deadlines

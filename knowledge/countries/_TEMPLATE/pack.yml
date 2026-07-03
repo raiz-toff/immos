@@ -1,0 +1,23 @@
+# Country pack contract — a country is SUPPORTED when every field is filled
+# and status is at least "draft". The agent may only answer country-specific
+# questions for countries with a pack.
+country: ""            # ISO 3166-1 alpha-2
+authority: ""          # e.g. USCIS, IRCC, UKVI, Home Affairs
+official_domains: []   # ONLY government domains. A source outside this list
+                       # is never citable as official, no matter how good.
+status: draft          # draft | community | verified
+built: ""              # date + how (bootstrap mode | manual)
+sources:               # per domain: url, fallback_url, fallback_query,
+  processing_times: {url: "", fallback_url: "", fallback_query: "", last_known_good: null}
+  fees:              {url: "", fallback_url: "", fallback_query: "", last_known_good: null}
+  forms:             {url: "", fallback_url: "", fallback_query: "", last_known_good: null}
+  rules_guidance:    {url: "", fallback_url: "", fallback_query: "", last_known_good: null}
+  policy_updates:    {url: "", fallback_url: "", fallback_query: "", last_known_good: null}
+terminology:           # the pack teaches the system to speak this country's language
+  request_for_more_evidence: ""   # US: RFE · CA: procedural fairness letter · UK: —
+  refusal: ""                     # refusal / denial / rejection — local term
+  appeal_or_review_paths: []      # names only + official link; NEVER strategy
+  status_document: ""             # visa / permit / BRP / I-94 / eTA ...
+  sponsor_term: ""
+quirks: []             # dated, sourced oddities (e.g. "fees differ inside vs outside country")
+not_covered: []        # honest list: sub-programs this pack has no sources for

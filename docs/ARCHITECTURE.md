@@ -81,7 +81,8 @@ behave when in a specific operating context. They are READ ONLY at runtime.
 | `timeline.md` | Timeline calculation | "How long will this take?" queries |
 | `pathway.md` | Pathway assessment | "What are my options?" queries |
 | `draft.md` | Document drafting | "Write me a letter" queries |
-| `rfe.md` | RFE/refusal response | "I got an RFE" / denial notices |
+| `setback.md` | Setback response (any country) | "they asked for more docs" / refusal / RFE / procedural-fairness letter |
+| `country.md` | Country pack bootstrap | target country has no installed pack |
 | `scan.md` | Portal scan | "Check for changes" / startup scan |
 | `batch.md` | Multi-pathway comparison | "Compare all my options" |
 | `alert.md` | Deadline alerts | CRITICAL/URGENT deadlines / "What deadlines?" |

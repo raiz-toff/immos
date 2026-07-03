@@ -57,11 +57,24 @@ visa categories, attorney info, alert preferences.
 **Reads:** `registry`, `evidence.md` (for real data to personalize drafts). **Writes:** `output/`
 **Key behavior:** Reads evidence.md for real scores/names/dates. Uses [REQUIRED: ...] placeholders only for truly unknown data. Every draft has a review checklist. Never finalizes.
 
-### rfe.md
-**Purpose:** RFE and refusal response preparation.
-**Triggers:** "refusal", "RFE", "rejection", "NOID", "221(g)", "they denied me".
-**Reads:** `registry`, `data/cases.md`. Writes deadline immediately to `data/cases.md`.
-**Key behavior:** Triage first (type / deadline / exact text). Mandatory attorney triggers for NOID, fraud allegations, criminal history, O-1/EB-1/NIW. Surfaces deadline at every session until resolved.
+### setback.md
+**Purpose:** Setback response preparation — more-evidence request, refusal,
+procedural-fairness letter, NOID, or equivalent, in ANY country.
+**Triggers:** "they asked for more documents", "I was refused", "procedural
+fairness letter", "request for further information", "RFE", "NOID", "221(g)",
+"they denied me", or any local setback term from an installed country pack.
+**Reads:** `registry`, `data/cases.md`, country pack `terminology`. Writes
+deadline immediately to `data/cases.md`.
+**Key behavior:** Speaks the country's local term (from pack). Triage first
+(type / deadline / exact text). Mandatory attorney triggers for NOID, fraud
+allegations, criminal history, extraordinary-ability categories. Surfaces
+deadline at every session until resolved.
+
+### country.md
+**Purpose:** Bootstrap a knowledge pack for any country with no pack yet.
+**Triggers:** target/residence country has no `knowledge/countries/<code>/pack.yml`; `/immigrate country <name>`.
+**Reads/Writes:** web-fetches the authority + source URLs; writes `pack.yml` at status draft. Never fills a pack from memory.
+**Key behavior:** Confirm government domain → fetch each source URL → fill terminology (UNVERIFIED if unconfirmed) → report covered/not_covered in two lines.
 
 ### scan.md
 **Purpose:** Portal scan — fetches and surfaces changes from official sources.

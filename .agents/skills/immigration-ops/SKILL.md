@@ -63,7 +63,7 @@ Route based on user intent. Load only the matching mode file.
 | Timeline / deadline / how long | `modes/timeline.md` |
 | Visa options / pathway / what should I apply for | `modes/pathway.md` |
 | Write / draft any document | `modes/draft.md` |
-| Refusal / RFE / rejection received | `modes/rfe.md` |
+| Setback: more-docs request / refusal / procedural-fairness / RFE | `modes/setback.md` |
 | Check for changes / scan portals | `modes/scan.md` |
 | Compare multiple pathways | `modes/batch.md` |
 | Deadline check / upcoming dates | `modes/alert.md` |

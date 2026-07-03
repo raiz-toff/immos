@@ -99,10 +99,12 @@ may be possible within 90 days of expiry. Verify at canada.ca before advising.
 Filing after a deadline typically results in denial without review.
 Fees are often forfeited. Refiling requires a new application and new fees.
 
-**RFE response deadline (US USCIS):**
-Failure to respond results in automatic denial. The USCIS policy manual
-does not allow extensions on RFE deadlines as a general rule. Attorney
-filing of a motion to reopen may be possible in limited circumstances.
+**Evidence-request response deadline (local term from the country pack —
+e.g. RFE in the US, procedural fairness letter in Canada):**
+Failure to respond by the stated date typically results in refusal/denial.
+Many authorities do not grant extensions on these deadlines as a general rule
+(verify the specific authority's rule before advising). Attorney filing of a
+motion/request to reopen may be possible in limited circumstances.
 
 **Biometric appointment:**
 Missing a scheduled biometric appointment may result in the application

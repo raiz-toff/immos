@@ -1,0 +1,28 @@
+# Country pack — United Kingdom
+# Migrated from knowledge/sources.yml (Phase 3). URLs carried over, NOT
+# re-fetched: last_known_good null, status draft. Terminology UNVERIFIED until
+# a country-mode fetch pass confirms each term at gov.uk. See modes/country.md.
+country: "uk"
+authority: "UK Visas and Immigration (UKVI), Home Office"
+official_domains: ["gov.uk"]
+status: draft
+built: "2026-07-03 (manual migration from sources.yml; URLs not re-fetched)"
+sources:
+  processing_times: {url: "https://www.gov.uk/government/publications/visa-processing-times", fallback_url: "https://www.gov.uk/guidance/visa-decision-waiting-times-applications-outside-the-uk", fallback_query: "UK visa processing times current site:gov.uk", last_known_good: null}
+  fees:              {url: "https://www.gov.uk/government/publications/visa-fees-transparency-data", fallback_url: "https://www.gov.uk/visa-fees", fallback_query: "UK visa fees current skilled worker site:gov.uk", last_known_good: null}
+  forms:             {url: "https://www.gov.uk/browse/visas-immigration", fallback_url: "https://www.gov.uk/apply-to-come-to-the-uk", fallback_query: "UK visa application route apply online site:gov.uk", last_known_good: null}
+  rules_guidance:    {url: "https://www.gov.uk/guidance/immigration-rules", fallback_url: "https://www.gov.uk/government/collections/immigration-rules", fallback_query: "UK immigration rules statement of changes site:gov.uk", last_known_good: null}
+  policy_updates:    {url: "https://www.gov.uk/government/collections/visas-and-immigration-operational-guidance", fallback_url: "https://www.gov.uk/government/organisations/uk-visas-and-immigration", fallback_query: "UK Home Office UKVI caseworker guidance operational instructions site:gov.uk", last_known_good: null}
+terminology:
+  request_for_more_evidence: "request for further information / documents"  # UNVERIFIED — UK has no exact RFE analogue
+  refusal: "refusal"                                        # UNVERIFIED
+  appeal_or_review_paths: ["Administrative Review", "Appeal to the First-tier Tribunal (where a right of appeal exists)"]  # UNVERIFIED — names only
+  status_document: "visa vignette / eVisa / BRP (biometric residence permit)"  # UNVERIFIED
+  sponsor_term: "licensed sponsor (Certificate of Sponsorship)"  # UNVERIFIED
+quirks:
+  - "Points-based system; Skilled Worker has a general salary threshold plus occupation going rates — the higher governs. [UNVERIFIED]"
+  - "Immigration Health Surcharge (IHS) charged per year of leave, separate from the visa fee. [UNVERIFIED]"
+  - "Shortage Occupation List replaced by the Immigration Salary List (2024). [UNVERIFIED]"
+not_covered:
+  - "EU Settlement Scheme specifics"
+  - "Asylum / protection routes (attorney / accredited nonprofit territory)"

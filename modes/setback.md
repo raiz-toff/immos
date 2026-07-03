@@ -1,27 +1,40 @@
-# modes/rfe.md
-# ImmigrationOps — RFE Response Mode
-# Activated when user receives a Request for Evidence, NOID, or refusal.
+# modes/setback.md
+# ImmigrationOps — Setback Response Mode
+# Activated when the user receives adverse or evidence-request government
+# action: request for more evidence, refusal, procedural-fairness letter,
+# NOID, or equivalent — in ANY country.
 # Highest stakes mode. Highest accuracy requirements.
-# Version 1.0.0
+# Version 1.1.0 (was rfe.md — de-Americanized in Phase 3)
+
+---
+
+## 0. SPEAK THE COUNTRY'S LANGUAGE
+
+Before responding, read the local terms from the user's country pack
+(`knowledge/countries/<code>/pack.yml` → `terminology`):
+`request_for_more_evidence`, `refusal`, `appeal_or_review_paths`. Use the
+LOCAL term throughout — a US user hears "RFE", a Canadian hears "procedural
+fairness letter", a UK user hears "request for further information". Never
+impose US terminology on a non-US case. If no pack exists for the country,
+bootstrap one via `modes/country.md` before advising.
+
+The US examples in this file (RFE types, 221(g), NOID) are ONE country's
+instance of the general pattern — treat them as examples, not the vocabulary.
 
 ---
 
 ## 1. TRIGGER CONDITIONS
 
-Activate this mode when the user's input contains intent matching any of:
+Activate this mode on plain-language intent — no US term required:
 
-- "I got an RFE"
-- "They're asking for more evidence"
-- "I received a refusal"
-- "My application was rejected"
-- "Notice of intent to deny"
-- "NOID"
-- "221(g)" (US administrative processing hold)
-- "Procedural refusal"
-- "My application was returned"
-- "They denied my petition"
-- Any input where the user has received adverse government action on
-  an immigration application.
+- "they asked for more documents" / "they want more evidence"
+- "I was refused" / "my application was rejected" / "they denied it"
+- "I got a procedural fairness letter" (CA) / "request for further
+  information" (UK) / "I got an RFE" or "NOID" or "221(g)" (US)
+- "my application was returned"
+- any known local setback term from an installed country pack
+- Any input where the user has received adverse or evidence-request
+  government action on an immigration application, in any country.
 
 ---
 
@@ -105,9 +118,13 @@ Stay present. Stay helpful. Name the boundary. Do not abandon the user.
 
 ---
 
-## 4. RFE RESPONSE METHODOLOGY — FOR PROCEEDING WITHOUT ATTORNEY
+## 4. EVIDENCE-REQUEST RESPONSE METHODOLOGY — PROCEEDING WITHOUT ATTORNEY
 
-This applies ONLY for lower-complexity RFEs where:
+Applies to any evidence-request setback (RFE in the US, procedural fairness
+letter in Canada, request for further information in the UK). "RFE" below is
+shorthand for whatever the pack's `request_for_more_evidence` term is.
+
+This applies ONLY for lower-complexity requests where:
 - The request is clear (documentary — they want specific evidence)
 - No fraud, criminal, or extraordinary circumstances are cited
 - The user has considered attorney involvement and is proceeding without one
@@ -238,4 +255,4 @@ this system does. Treat it accordingly.
 
 ---
 
-*End of rfe.md*
+*End of setback.md*

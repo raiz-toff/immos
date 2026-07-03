@@ -1,0 +1,27 @@
+# Country pack — Canada
+# Migrated from knowledge/sources.yml (Phase 3). URLs carried over, NOT
+# re-fetched: last_known_good null, status draft. Terminology UNVERIFIED until
+# a country-mode fetch pass confirms each term at canada.ca. See modes/country.md.
+country: "ca"
+authority: "IRCC"      # Immigration, Refugees and Citizenship Canada
+official_domains: ["canada.ca", "ircc.canada.ca", "cic.gc.ca"]
+status: draft
+built: "2026-07-03 (manual migration from sources.yml; URLs not re-fetched)"
+sources:
+  processing_times: {url: "https://www.canada.ca/en/immigration-refugees-citizenship/services/application/check-processing-times.html", fallback_url: "https://www.ircc.canada.ca/english/information/times/index.asp", fallback_query: "IRCC immigration processing times current site:canada.ca", last_known_good: null}
+  fees:              {url: "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/fees.html", fallback_url: "https://www.canada.ca/en/immigration-refugees-citizenship/services/application/fees.html", fallback_query: "IRCC immigration fees permanent residence work permit site:canada.ca", last_known_good: null}
+  forms:             {url: "https://www.canada.ca/en/immigration-refugees-citizenship/services/application/application-forms-guides.html", fallback_url: "https://www.canada.ca/en/immigration-refugees-citizenship/services/application.html", fallback_query: "IRCC application forms guides current versions site:canada.ca", last_known_good: null}
+  rules_guidance:    {url: "https://www.canada.ca/en/immigration-refugees-citizenship/corporate/mandate/policies-operational-instructions-agreements/operational-instructions.html", fallback_url: "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees.html", fallback_query: "IRCC operational instructions program delivery site:canada.ca", last_known_good: null}
+  policy_updates:    {url: "https://www.canada.ca/en/immigration-refugees-citizenship/news.html", fallback_url: "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/submit-profile/rounds-invitations.html", fallback_query: "IRCC news Express Entry draw results site:canada.ca", last_known_good: null}
+terminology:
+  request_for_more_evidence: "procedural fairness letter"   # UNVERIFIED — confirm at canada.ca
+  refusal: "refusal"                                        # UNVERIFIED
+  appeal_or_review_paths: ["Request to reopen", "Federal Court judicial review", "IAD appeal (where eligible)"]  # UNVERIFIED — names only
+  status_document: "permanent resident card / work or study permit / eTA"  # UNVERIFIED
+  sponsor_term: "sponsor (family class) / employer (LMIA)"  # UNVERIFIED
+quirks:
+  - "Express Entry uses a CRS score with roughly biweekly draws; category-based draws select specific occupation groups. [UNVERIFIED]"
+  - "Provincial Nominee Programs (PNP) run province-specific streams separate from federal Express Entry. [UNVERIFIED]"
+not_covered:
+  - "Quebec immigration (separate provincial system: MIFI)"
+  - "Individual PNP stream requirements (follow through to each provincial site)"
