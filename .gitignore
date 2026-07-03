@@ -58,8 +58,15 @@ knowledge/uk/
 knowledge/last_update.json
 knowledge/changelog.md
 
+# Country packs (Phase 3): fetched cache is per-user data — never commit.
+# pack.yml is the shareable asset (no personal data) — keep it tracked.
+knowledge/countries/*/cache/
+
 # Keep the sources index (this is system config, not user data)
 !knowledge/sources.yml
+# Keep country-pack contracts (system config / shareable asset)
+!knowledge/countries/
+!knowledge/countries/**/pack.yml
 
 # ============================================================
 # ADDING A NEW COUNTRY — MAINTENANCE RULE

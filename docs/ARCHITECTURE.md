@@ -27,7 +27,7 @@ The architecture has five layers:
 │    modes/  — behavioral scripts per mode            │
 ├─────────────────────────────────────────────────────┤
 │ 1. FOUNDATION LAYER                                 │
-│    Agents.md  — master behavioral contract          │
+│    AGENTS.md  — master behavioral contract          │
 └─────────────────────────────────────────────────────┘
 ```
 
@@ -38,9 +38,9 @@ Every layer above it is progressively more specific and more writeable.
 
 ## Layer 1 — Foundation
 
-**File:** `Agents.md`
+**File:** `AGENTS.md`
 
-The master contract. Every AI CLI that runs this system reads `Agents.md`
+The master contract. Every AI CLI that runs this system reads `AGENTS.md`
 and every behavior in the system derives from it. It defines:
 
 - The agent's identity and philosophy
@@ -53,7 +53,7 @@ and every behavior in the system derives from it. It defines:
 - The 5 hard rules that override everything else
 - Response standards, tone, and session close protocol
 
-`CLAUDE.md`, `GEMINI.md`, and `CODEX.md` each import `Agents.md` and add
+`CLAUDE.md`, `GEMINI.md`, and `CODEX.md` each import `AGENTS.md` and add
 CLI-specific command syntax and notes. The foundation is shared.
 
 ---
@@ -303,8 +303,8 @@ The only mode loaded universally is `_shared.md` (core identity) and
 1. Create the mode file in `modes/[modename].md`.
 2. Define: trigger conditions, methodology, report format, registry interaction.
 3. Write the file as behavioral instructions — use "you" not "the agent."
-4. Verify the file does not violate any of the 5 hard rules from `Agents.md`.
-5. Add the mode to the routing table in `Agents.md` Section 6.
+4. Verify the file does not violate any of the 5 hard rules from `AGENTS.md`.
+5. Add the mode to the routing table in `AGENTS.md` Section 6.
 6. Add the slash command to `CLAUDE.md`, `GEMINI.md`, and `CODEX.md`.
 7. Document the mode in this file under the Mode Layer section.
 
@@ -321,7 +321,7 @@ classification." Do not duplicate logic — reference it.
 2. Add the country to `knowledge/last_update.json` with all domains
    initialized to `1970-01-01T00:00:00Z` / `NEVER_FETCHED`.
 3. Update `modes/_profile.md` instructions to include the new country code.
-4. Update the sources table in `Agents.md` Section 5.
+4. Update the sources table in `AGENTS.md` Section 5.
 5. Test the fetch sequence: set the country in `_profile.md`, launch a
    session, and verify the agent fetches current knowledge for that country.
 

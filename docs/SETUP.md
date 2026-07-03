@@ -43,7 +43,7 @@ Run this in your terminal from the project folder:
 ```bash
 ls -la
 ```
-You should see: `Agents.md`, `CLAUDE.md`, `GEMINI.md`, `CODEX.md`, `README.md`,
+You should see: `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `CODEX.md`, `README.md`,
 and the directories `modes/`, `registry/`, `knowledge/`, `data/`, `output/`,
 `reports/`, `docs/`.
 
@@ -121,7 +121,7 @@ particular way. The agent will take it from there.
 
 ### Problem: "I don't see any output after launching"
 Check that you launched the CLI from inside the `immigration-ops` directory.
-The CLI needs to be able to read `Agents.md` and the other project files.
+The CLI needs to be able to read `AGENTS.md` and the other project files.
 
 ### Problem: "The agent doesn't seem to know my country/visa"
 If `modes/_profile.md` has empty `countries: []`, the agent will ask

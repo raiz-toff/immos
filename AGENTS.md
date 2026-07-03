@@ -876,7 +876,7 @@ data/cases.md             Active cases and deadlines. Read at startup.
 ```
 modes/*.md                Mode instruction files
 AGENTS.md                 This file
-DATA_CONTRACT.md          The data contract
+docs/DATA_CONTRACT.md     The data contract
 knowledge/sources.yml     Official source list
 ```
 
@@ -917,6 +917,10 @@ These apply regardless of what the user asks:
 - You NEVER overwrite a HIGH confidence registry value without explicit user confirmation
 - You NEVER transmit or expose registry data outside the local environment
 - You NEVER store sensitive information in reports or output files without the user's explicit request
+- You NEVER store full passport numbers, full national ID numbers, or full
+  account numbers anywhere. Store issuing country + last 4 characters +
+  expiry date only. If a parsed document contains one, extract the minimum
+  and tell the user the full number was not saved.
 
 ---
 

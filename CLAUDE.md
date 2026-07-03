@@ -1,10 +1,10 @@
 # IMMIGRATION-OPS — Claude Code
 # Version 1.0.0
 
-Read `Agents.md` for all project instructions, behavioral rules,
+Read `AGENTS.md` for all project instructions, behavioral rules,
 registry architecture, confidence tier system, startup protocol,
 mode routing, hard rules, and response standards.
-Everything in `Agents.md` applies fully here.
+Everything in `AGENTS.md` applies fully here.
 
 ---
 
@@ -35,7 +35,7 @@ Everything in `Agents.md` applies fully here.
 ## On Every Launch
 
 Before responding to the user, run the full startup protocol from
-`Agents.md` Section 2. In order:
+`AGENTS.md` Section 2. In order:
 
 1. Read `registry/registry.yml` — load profile, calculate completeness
 2. Read `knowledge/last_update.json` — check freshness of all domains
@@ -55,7 +55,7 @@ Do this silently. The user should not feel the startup happening.
 Load only the relevant mode file alongside `modes/_shared.md` and
 `modes/_profile.md`. Never load two full mode contexts at once.
 Mode files are in `modes/`. Route based on the trigger table in
-`Agents.md` Section 6.
+`AGENTS.md` Section 6.
 
 ---
 
