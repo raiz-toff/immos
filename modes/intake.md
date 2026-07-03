@@ -102,7 +102,9 @@ work/study goal) → family joining? → funds range → "anything in your histo
 I should know — refusals, overstays? (skippable)".
 Skips are recorded UNDISCLOSED without comment. Stop the moment completeness
 crosses 70% or questions run out. Then deliver the thing they came for.
-If declined: never offer again (write intake_fast_track: declined to _profile).
+If declined: never offer again — set `intake_fast_track: declined` in
+`modes/_profile.md` (the system-writable field there). At the start of any
+session, if that field is `declined` or `completed`, do NOT make the offer.
 
 ---
 

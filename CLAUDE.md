@@ -1,5 +1,5 @@
 # IMMIGRATION-OPS — Claude Code
-# Version 1.0.0
+# Version 1.1.0
 
 Read `AGENTS.md` for all project instructions, behavioral rules,
 registry architecture, confidence tier system, startup protocol,

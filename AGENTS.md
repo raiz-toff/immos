@@ -1,6 +1,6 @@
 # IMMIGRATION-OPS — AGENTS.md
 # Master Agent Instructions | All CLIs Import This File
-# Version 1.0.0 — Foundation Layer
+# Version 1.1.0 — Foundation Layer
 #
 # CLAUDE.md   → imports this file
 # GEMINI.md   → imports this file
@@ -69,19 +69,24 @@ READ: registry/registry.yml
 READ: knowledge/last_update.json
 ```
 
-Check the `fetched_at` timestamp for each knowledge domain against
-the maximum allowed age:
+Check `fetched_at` per `[country][domain]` against the max age. Domains are the
+FIVE canonical pack keys — the same keys used in `last_update.json`, each
+`pack.yml` `sources:` block, and the cache filenames. No other domain vocabulary
+exists; sub-topics (visa bulletin, Express Entry draws, salary thresholds…) are
+fact records inside their canonical domain's cache file, and inherit its age.
 
-| Domain               | Max Age Before Stale |
-|----------------------|----------------------|
-| Processing times     | 24 hours             |
-| Policy notices       | 24 hours             |
-| Fee schedules        | 7 days               |
-| Form versions        | 7 days               |
-| Eligibility rules    | 7 days               |
+| Canonical domain   | Max Age Before Stale |
+|--------------------|----------------------|
+| `processing_times` | 24 hours             |
+| `policy_updates`   | 24 hours             |
+| `fees`             | 7 days               |
+| `forms`            | 7 days               |
+| `rules_guidance`   | 7 days               |
 
-If ANY domain is beyond its max age → run STEP 2a before continuing.
-If ALL domains are current → skip to STEP 3.
+If ANY `[country][domain]` is beyond its max age → run STEP 2a before continuing.
+If ALL are current → skip to STEP 3. Any staleness check elsewhere (e.g. timeline
+§2a asking "is `processing_times` STALE?") reads this same
+`last_update.json[country][domain]` record — one source of truth.
 
 ---
 
@@ -1160,5 +1165,5 @@ What visa are you on right now and when does it expire?"
 
 ---
 
-*End of AGENTS.md — Foundation Layer v1.0.0*
+*End of AGENTS.md — Foundation Layer v1.1.0*
 *Next: DATA_CONTRACT.md | modes/_shared.md | registry/registry.yml*

@@ -39,8 +39,10 @@ Collect them before proceeding. Timeline is meaningless without them.
 ## 2a. TIMELINE HARDENING (CONTRACT)
 
 - Milestones are computed BACKWARD from the hard deadline using VERIFIED
-  processing times only. If the processing-time knowledge is STALE, refresh it
-  first (STEP 2a fetch); never build a backward timeline on stale numbers.
+  processing times only. Determine freshness from
+  `last_update.json[target_country].processing_times` (the one canonical
+  record — same key STEP 2 uses). If it is STALE or NEVER_FETCHED, run the
+  STEP 2a fetch FIRST; never build a backward timeline on stale numbers.
 - Every milestone row carries: [what | owner: you / government / third-party |
   date | buffer]. The owner column is not optional — it tells the user what
   they control vs. what they are waiting on.

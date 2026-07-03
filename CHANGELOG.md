@@ -16,6 +16,45 @@ Changes staged for the next release.
 
 ---
 
+## [1.1.0] — 2026-07-03
+
+Gap-closure upgrade (six gaps G1–G8 from the upgrade guide). Zero new
+dependencies — every mechanism is a contract the LLM follows, backed by the
+Phase-5 eval set. See `docs/EVAL-RUN-2026-07-03.md`.
+
+### Fixed
+- **G1** — `Agents.md` → `AGENTS.md` (filesystem is case-sensitive here, so the
+  canon file silently failed to load in AGENTS-aware harnesses). All in-repo
+  references recased; DATA_CONTRACT path unified to `docs/DATA_CONTRACT.md`.
+
+### Added
+- **G2** — root wrappers `OPENCODE.md`, `QWEN.md`, `GROK.md`, `KIMI.md`.
+- **G3** — AGENTS.md §9 replaced with the Style Contract (answer-first, hard
+  length caps, Direct Question Protocol, terse session close); propagated via a
+  `_shared.md` style pointer.
+- **G4** — fast-track intake; completeness now labels (PROVISIONAL/WORKING/full)
+  instead of blocking, with an assessment-weighted formula; registry Layer 8
+  (communication & behavior) + per-dependent mini-registries; `data/documents.md`
+  and `data/journal.md`; document-expiry deadline scan; journal continuity.
+- **G5** — country packs: `knowledge/countries/<code>/pack.yml` (+`_TEMPLATE`),
+  us/ca/uk migrated (status draft, terminology UNVERIFIED pending a fetch pass);
+  thin `sources.yml` index; new `modes/country.md`; `rfe.md` → `setback.md`
+  (any-country, pack-terminology-aware); de-Americanized routing.
+- **G6** — fact-record schema; draft anti-hallucination contract
+  (`[YOU:]`/`[CONFIRM:]`, mandatory consistency pass); attorney-referral trigger
+  table (8 triggers); **RULE 6 — never assist misrepresentation** (now six hard
+  rules); timeline hardening (backward-from-deadline on VERIFIED times only).
+- **G7** — `docs/EVALS.md` (40 cases) + `docs/EVAL-RUN-2026-07-03.md`.
+- **G8** — store-minimum privacy rule (last-4 only); `.gitignore` hardened for
+  `data/documents.md`, `data/journal.md`, and `knowledge/countries/*/cache/`.
+
+### Changed
+- Canonicalized the freshness stack on five domain keys
+  (`processing_times/fees/forms/rules_guidance/policy_updates`) across
+  `last_update.json`, AGENTS.md §2, packs, and timeline staleness checks.
+
+---
+
 ## [1.0.0] — 2026-06-29
 
 ### Added
