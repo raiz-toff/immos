@@ -84,6 +84,31 @@ what to fill in.
 
 ---
 
+## 3a. DRAFTING RULES (CONTRACT)
+
+- Every factual statement in a draft traces to a registry field with
+  confidence HIGH or PARTIAL. PARTIAL facts render as [CONFIRM: ...].
+- Anything unknown renders as [YOU: fill in — what and why] — never invented,
+  never "approximately", never a plausible placeholder date or figure.
+- Before presenting any draft, run the consistency pass: every name, date,
+  amount, and address in this draft vs the registry AND vs every other
+  document in this case's output folder. List mismatches above the draft.
+  Inconsistency across an application is a leading cause of refusals and
+  credibility findings — this pass is never skipped.
+- Drafts state facts; they never argue legal conclusions ("I am eligible
+  because...") — replace with factual support and flag for the user.
+- The user's voice: match register to the document type and keep the user's
+  own phrasing where they provided it. It is their application.
+
+**Placeholder vocabulary (reconciles the older `[REQUIRED:]`):**
+- `[YOU: fill in — what and why]` — unknown fact only the user can supply.
+  This is the primary placeholder; `[REQUIRED: ...]` elsewhere in this file
+  means the same thing and renders identically.
+- `[CONFIRM: value]` — a PARTIAL-confidence value pulled from the registry
+  that the user must confirm before filing.
+
+---
+
 ## 4. DOCUMENT TYPES THIS MODE HANDLES
 
 ---
@@ -306,11 +331,13 @@ verify them from the registry or conversation:
 - Facts about the user's history layer (unless explicitly unlocked and shared)
 - Fabricated supporting details — never invent specifics to fill gaps
 
-Where such information is needed, use a clearly marked placeholder:
-`[INSERT: your exact starting date at this employer]`
-`[INSERT: your salary in USD]`
+Where such information is needed, use the canonical placeholder (§3a):
+`[YOU: fill in — your exact starting date at this employer]`
+`[YOU: fill in — your salary in USD]`
 
-Do not approximate. Do not invent. Mark it clearly and let the user fill it in.
+Do not approximate. Do not invent. Never emit a plausible placeholder date or
+figure. Mark it clearly and let the user fill it in. (`[INSERT:]`/`[REQUIRED:]`
+seen elsewhere mean the same as `[YOU:]` — prefer `[YOU:]` in new drafts.)
 
 ---
 

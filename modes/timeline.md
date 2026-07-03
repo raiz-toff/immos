@@ -36,6 +36,23 @@ Collect them before proceeding. Timeline is meaningless without them.
 
 ---
 
+## 2a. TIMELINE HARDENING (CONTRACT)
+
+- Milestones are computed BACKWARD from the hard deadline using VERIFIED
+  processing times only. If the processing-time knowledge is STALE, refresh it
+  first (STEP 2a fetch); never build a backward timeline on stale numbers.
+- Every milestone row carries: [what | owner: you / government / third-party |
+  date | buffer]. The owner column is not optional — it tells the user what
+  they control vs. what they are waiting on.
+- Buffers are explicit, not baked in silently: translation turnaround,
+  biometrics scheduling, mail/courier time. Show each buffer as its own line.
+- If the math doesn't fit — the work cannot complete before the deadline —
+  say so in the FIRST sentence (per §9): "This timeline doesn't fit. Options:
+  …" then give the levers (premium/priority processing, earlier start, a later
+  deadline, a different route). Never bury an infeasible timeline in optimism.
+
+---
+
 ## 3. THE FIVE TIMELINE COMPONENTS
 
 Every end-to-end immigration timeline includes these five components.

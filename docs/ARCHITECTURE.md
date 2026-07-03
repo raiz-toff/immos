@@ -50,7 +50,7 @@ and every behavior in the system derives from it. It defines:
 - The knowledge and confidence tier system
 - The mode routing table
 - The data contract (what can be touched)
-- The 5 hard rules that override everything else
+- The 6 hard rules that override everything else
 - Response standards, tone, and session close protocol
 
 `CLAUDE.md`, `GEMINI.md`, and `CODEX.md` each import `AGENTS.md` and add
@@ -304,7 +304,7 @@ The only mode loaded universally is `_shared.md` (core identity) and
 1. Create the mode file in `modes/[modename].md`.
 2. Define: trigger conditions, methodology, report format, registry interaction.
 3. Write the file as behavioral instructions — use "you" not "the agent."
-4. Verify the file does not violate any of the 5 hard rules from `AGENTS.md`.
+4. Verify the file does not violate any of the 6 hard rules from `AGENTS.md`.
 5. Add the mode to the routing table in `AGENTS.md` Section 6.
 6. Add the slash command to `CLAUDE.md`, `GEMINI.md`, and `CODEX.md`.
 7. Document the mode in this file under the Mode Layer section.
@@ -357,7 +357,7 @@ auditable than formal rules, and they allow for nuance that rigid logic
 cannot express — for example, "ask about this sensitively" is easy to
 express in prose and nearly impossible in formal logic.
 
-**Why the five hard rules?**
+**Why the hard rules?**
 The hard rules exist because the consequences of violating them are severe:
 accidentally filing an application, giving overconfident eligibility assessments,
 or silently overwriting correct data could cause real harm. The rules are

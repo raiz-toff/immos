@@ -10,7 +10,7 @@ Loaded only when needed — not at every session.
 ### _shared.md
 The agent's character, hard rules, tone, and behavioral constants.
 Loaded every session alongside every other mode. Never skipped.
-Contains: identity, 5 hard rules as behavioral scripts, confidence
+Contains: identity, 6 hard rules as behavioral scripts, confidence
 tier enforcement, registry habit, tone guidance, session close protocol,
 pattern awareness (active from session 3+).
 
