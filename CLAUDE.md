@@ -71,6 +71,8 @@ Mode files are in `modes/`. Route based on the trigger table in
 ```
 registry/registry.yml      — user profile (read + write)
 data/cases.md              — active cases and deadlines (read + write)
+data/documents.md          — document inventory (read + write)
+data/journal.md            — case journal / decision log (append-only)
 knowledge/                 — fetched official knowledge (read + write)
 modes/_profile.md          — user customizations (read + write)
 output/                    — drafted documents (write)

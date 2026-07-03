@@ -91,6 +91,21 @@ Everything else follows from what they say.
 
 ---
 
+## 4a. FAST-TRACK INTAKE OFFER (fixes the cold-start paradox)
+
+Offer exactly once, in one line: "Want the quick version? ~10 short questions
+now and I can assess pathways today — or we just talk and I learn as we go."
+If accepted: run rapid intake. One question per turn, Direct Question Protocol,
+ordered by assessment value: target country → goal → citizenship(s) → current
+country + status → status expiry → hard deadline → education/occupation (if
+work/study goal) → family joining? → funds range → "anything in your history
+I should know — refusals, overstays? (skippable)".
+Skips are recorded UNDISCLOSED without comment. Stop the moment completeness
+crosses 70% or questions run out. Then deliver the thing they came for.
+If declined: never offer again (write intake_fast_track: declined to _profile).
+
+---
+
 ## 5. SESSION-BY-SESSION PROGRESSION
 
 ### Session 1 — Minimum to be useful
@@ -210,6 +225,11 @@ All fields across all unlocked layers:
 - `target` (all fields)
 - `family` (all fields, if relevant and offered by user)
 - `financial` (all fields, if relevant and offered by user)
+
+**Document inventory:** when the user mentions a document they hold (passport,
+permit, degree, marriage certificate…), record it in `data/documents.md` —
+issuing country + last-4 of any reference only (§7 privacy rule). Document
+expiries feed the startup deadline scan.
 
 **SENSITIVE layers — intake mode does NOT write these:**
 - `history` (Layer 3)

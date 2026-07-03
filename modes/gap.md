@@ -45,11 +45,13 @@ Pull: `target.target_country`, `target.target_visa_type`, all available
 layers. Note completeness percentage. Note any UNKNOWN fields that may
 affect document requirements.
 
-**Step 1a — Read evidence.md (if it exists).**
-Before classifying any document, read `evidence.md`.
-The evidence inventory is the primary source for document status.
-A confirmed entry in `evidence.md` = CONFIRMED in the gap report.
-Do not ask the user about documents already recorded in their inventory.
+**Step 1a — Read evidence.md and data/documents.md (if they exist).**
+Before classifying any document, read `evidence.md` AND `data/documents.md`.
+Both are inventories of what the user holds — `evidence.md` scores strength,
+`data/documents.md` tracks holder/expiry/status. A confirmed entry in either
+= CONFIRMED in the gap report. Do not ask about documents already recorded.
+When gap analysis surfaces a document the user has but that is not yet in
+`data/documents.md`, add it there (last-4 refs only, §7 privacy rule).
 
 **Step 2 — Fetch official document requirements.**
 Using `knowledge/sources.yml`, identify the official source for this

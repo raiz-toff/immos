@@ -47,6 +47,10 @@ before proceeding. Explain why each one is needed:
   (for timeline feasibility scoring)
 - `family.marital_status` and `family.dependants_included`
   (for pathways with family components)
+  When `dependants_included` is true, state requirements PER PERSON: read each
+  dependent's mini-registry block (`family.children[]`, `family.spouse_profile`)
+  and name what each one specifically needs — age cutoffs, status, documents —
+  not just the principal applicant's.
 - `financial.approximate_annual_income` and `savings_range`
   (for pathways with financial requirements)
 

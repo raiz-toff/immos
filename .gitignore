@@ -41,6 +41,8 @@ evidence.md
 # User's live immigration situation — never commit.
 # ============================================================
 data/cases.md
+data/documents.md
+data/journal.md
 data/*.db
 data/*.tsv
 data/*.csv
