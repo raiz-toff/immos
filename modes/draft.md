@@ -1,5 +1,5 @@
 # modes/draft.md
-# ImmigrationOps — Document Drafting Mode
+# Immos — Document Drafting Mode
 # Generates draft documents for immigration applications.
 # Always drafts. Never finalizes. Never submits.
 # Version 1.0.0

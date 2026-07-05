@@ -1,5 +1,5 @@
 # modes/timeline.md
-# ImmigrationOps — Timeline Calculation Mode
+# Immos — Timeline Calculation Mode
 # Calculates end-to-end timelines and identifies critical start dates.
 # Version 1.0.0
 

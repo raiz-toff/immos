@@ -1,5 +1,5 @@
 # modes/audit.md
-# ImmigrationOps — Pre-Submission Audit Mode
+# Immos — Pre-Submission Audit Mode
 # The last line of defense before filing.
 # Deliberately skeptical. Catches what everything else missed.
 # Version 1.0.0

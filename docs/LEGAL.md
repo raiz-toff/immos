@@ -1,8 +1,8 @@
 # Legal Disclaimer
 
-## What ImmigrationOps is
+## What Immos is
 
-ImmigrationOps is a personal preparation and organization tool.
+Immos is a personal preparation and organization tool.
 It helps users understand their immigration options, organize documents,
 draft application materials, and track deadlines.
 
@@ -12,7 +12,7 @@ status with any immigration authority anywhere in the world.
 
 ---
 
-## What ImmigrationOps is not
+## What Immos is not
 
 **Not legal advice.**
 Nothing this software produces — analyses, assessments, drafted documents,
@@ -27,7 +27,7 @@ sole responsibility.
 
 **Not a government source.**
 Information fetched from official government websites is retrieved as-is.
-ImmigrationOps makes no warranty that fetched information is current,
+Immos makes no warranty that fetched information is current,
 complete, or applicable to any individual's specific circumstances.
 Always verify directly with the relevant authority before acting on any
 immigration information.
@@ -44,21 +44,21 @@ professional before proceeding.
 ## Data privacy
 
 **Your data stays on your machine.**
-ImmigrationOps stores all user data locally — the registry, evidence
+Immos stores all user data locally — the registry, evidence
 inventory, case tracker, and all generated documents. No user data is
 transmitted to any server, cloud service, or third party by this software.
 
 **API providers.**
-When you use ImmigrationOps with an AI CLI (Claude Code, Gemini CLI,
+When you use Immos with an AI CLI (Claude Code, Gemini CLI,
 Codex, or others), your prompts and session content are transmitted to
 the AI provider you have chosen, subject to that provider's terms of
-service and privacy policy. ImmigrationOps has no control over and takes
+service and privacy policy. Immos has no control over and takes
 no responsibility for how AI providers handle your data.
 Review your AI provider's privacy policy before sharing sensitive
 personal information in any session.
 
 **Sensitive data.**
-ImmigrationOps may, in the course of its operation, ask about or receive
+Immos may, in the course of its operation, ask about or receive
 information that is highly sensitive — passport details, visa history,
 refusal records, criminal history, and family situation. You decide what
 to share. Never share more than you are comfortable with any AI system
@@ -75,7 +75,7 @@ See docs/RECOVERY.md for instructions.
 
 ## Acceptable use
 
-ImmigrationOps is designed to help users prepare genuine immigration
+Immos is designed to help users prepare genuine immigration
 applications honestly and accurately.
 
 The following uses are explicitly outside the intended scope and
@@ -94,7 +94,7 @@ The authors of this software accept no liability for misuse.
 
 ## EU AI Act
 
-ImmigrationOps is an AI-assisted tool in a domain that affects
+Immos is an AI-assisted tool in a domain that affects
 fundamental rights and individual circumstances significantly.
 It is designed with the following principles in mind:
 
@@ -110,7 +110,7 @@ your jurisdiction, do not use it. Report concerns to the project maintainers.
 
 ## Limitation of liability
 
-The authors and contributors of ImmigrationOps provide this software
+The authors and contributors of Immos provide this software
 "as is" without warranty of any kind, express or implied. In no event
 shall the authors be liable for any direct, indirect, incidental,
 special, exemplary, or consequential damages arising from the use of
@@ -128,17 +128,17 @@ When in doubt, consult a licensed professional.
 
 ## Third-party terms of service
 
-When ImmigrationOps fetches data from government websites (USCIS, IRCC,
+When Immos fetches data from government websites (USCIS, IRCC,
 Home Office, and others), it does so as a read-only web client.
 Users are responsible for ensuring their use of government website data
 complies with those websites' terms of service.
 
-When ImmigrationOps is used with AI CLI tools, use of those tools is
-subject to those providers' terms of service. ImmigrationOps does not
+When Immos is used with AI CLI tools, use of those tools is
+subject to those providers' terms of service. Immos does not
 authorize any use that would violate an AI provider's acceptable use policy.
 
 ---
 
-*ImmigrationOps is open-source software. The full source is available
+*Immos is open-source software. The full source is available
 for review. Questions about this disclaimer: open an issue on the
 project repository.*

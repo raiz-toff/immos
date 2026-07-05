@@ -1,11 +1,11 @@
-# ARCHITECTURE.md — ImmigrationOps Technical Architecture
+# ARCHITECTURE.md — Immos Technical Architecture
 # Version 1.0.0
 
 ---
 
 ## Overview
 
-ImmigrationOps is a file-based, agent-driven immigration assistance system.
+Immos is a file-based, agent-driven immigration assistance system.
 It is not a web application, not a database, and not a service. It is a
 structured directory of instruction files, user data files, and knowledge
 files that an AI agent reads and writes during each session.

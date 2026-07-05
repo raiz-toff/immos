@@ -1,5 +1,5 @@
 # modes/intake.md
-# ImmigrationOps — Onboarding Mode
+# Immos — Onboarding Mode
 # Builds the user's registry through conversation.
 # Loaded when: first session OR registry critically incomplete.
 # Version 1.0.0

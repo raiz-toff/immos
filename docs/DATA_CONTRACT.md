@@ -1,5 +1,5 @@
 # DATA_CONTRACT.md
-# ImmigrationOps — Explicit Data Permissions and Behavioral Contract
+# Immos — Explicit Data Permissions and Behavioral Contract
 # Version 1.0.0
 #
 # This document governs exactly what the agent can and cannot touch.

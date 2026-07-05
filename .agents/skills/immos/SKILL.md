@@ -1,5 +1,5 @@
 ---
-name: immigration-ops
+name: immos
 description: >-
   Immigration preparation assistant for visa applications, status changes,
   and permanent residence. US (USCIS), Canada (IRCC), UK (Home Office).
@@ -19,7 +19,7 @@ description: >-
   Data fetched from official sources every session — never from
   training data. User data stays local. Never submits on user's behalf.
 metadata:
-  author: immigration-ops
+  author: immos
   version: 1.0.0
   license: MIT
   compatibility: >-
@@ -27,7 +27,7 @@ metadata:
     Kimi, Qwen CLI, OpenCode — any CLI that reads SKILL.md
 ---
 
-# Immigration-Ops
+# Immos
 
 Immigration preparation and guidance for general users.
 Powered by a self-healing knowledge base fetched from official

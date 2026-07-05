@@ -93,7 +93,7 @@ Check for:
 Render this exact format. Clean. Scannable. No padding.
 
 ```
-IMMIGRATION-OPS STATUS
+IMMOS STATUS
 ─────────────────────────────────────────
 
 REGISTRY  [overall%]% complete

@@ -1,4 +1,4 @@
-# IMMIGRATION-OPS — Gemini CLI
+# IMMOS — Gemini CLI
 # Version 1.0.0
 
 Read `AGENTS.md` for all project instructions, behavioral rules,
@@ -10,7 +10,7 @@ Everything in `AGENTS.md` applies fully here.
 
 ## Quick Commands
 
-Run these as input to the Gemini CLI when in the immigration-ops directory:
+Run these as input to the Gemini CLI when in the immos directory:
 
 ```
 immigrate [question or input]     → auto-routes to the correct mode
@@ -69,7 +69,7 @@ Mode files are in `modes/`. Route based on the trigger table in
 When using Gemini's grounding or search features for knowledge fetching:
 - Ground ONLY against the official URLs specified in `knowledge/sources.yml`
 - Do not use general web grounding that might surface unofficial sources
-- Citation format should match the ImmigrationOps inline citation standard:
+- Citation format should match the Immos inline citation standard:
   `[VERIFIED | source.gov | YYYY-MM-DD]`
 
 When using Gemini function calling:

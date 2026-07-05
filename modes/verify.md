@@ -1,5 +1,5 @@
 # modes/verify.md
-# ImmigrationOps — Fact Verification Mode
+# Immos — Fact Verification Mode
 # Checks any immigration claim the user encounters.
 # Version 1.0.0
 

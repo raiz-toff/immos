@@ -1,4 +1,4 @@
-# IMMIGRATION-OPS — Claude Code
+# IMMOS — Claude Code
 # Version 1.1.0
 
 Read `AGENTS.md` for all project instructions, behavioral rules,
@@ -64,7 +64,7 @@ Mode files are in `modes/`. Route based on the trigger table in
 
 ## Skills Location
 
-`.claude/skills/immigration-ops/SKILL.md`
+`.claude/skills/immos/SKILL.md`
 (Create this path if extending the system with custom Claude Code skills.)
 
 ---

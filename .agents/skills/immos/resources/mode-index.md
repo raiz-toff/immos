@@ -1,4 +1,4 @@
-# Immigration-Ops — Mode Index
+# Immos — Mode Index
 
 Quick reference for all available modes.
 Loaded only when needed — not at every session.
@@ -158,7 +158,7 @@ deadline at every session until resolved.
 
 ```
 CLI startup
-  → reads .claude/skills/immigration-ops/SKILL.md (frontmatter only, ~50 tokens)
+  → reads .claude/skills/immos/SKILL.md (frontmatter only, ~50 tokens)
   → task matches description triggers
   → full SKILL.md loads
   → instructions say: read AGENTS.md

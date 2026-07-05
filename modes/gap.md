@@ -1,5 +1,5 @@
 # modes/gap.md
-# ImmigrationOps — Document Gap Analysis Mode
+# Immos — Document Gap Analysis Mode
 # Tells the user what they have, what they need, and what is missing.
 # Version 1.0.0
 

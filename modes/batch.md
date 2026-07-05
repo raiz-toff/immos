@@ -1,5 +1,5 @@
 # modes/batch.md
-# ImmigrationOps — Batch Mode
+# Immos — Batch Mode
 # Parallel evaluation of multiple pathways or scenarios.
 # Version 1.0.0
 

@@ -1,4 +1,4 @@
-# BUILD REPORT — ImmigrationOps Harness
+# BUILD REPORT — Immos Harness
 # Builder Agent: Claude Code (claude-sonnet-4-6)
 # Build Date: 2026-06-29
 
@@ -110,7 +110,7 @@ No mode file makes eligibility claims — all use the "appears viable" framing.
 
 ### Check 2 — First Session Simulation
 
-1. User opens Claude Code in the immigration-ops directory ✓
+1. User opens Claude Code in the immos directory ✓
 2. CLAUDE.md loads → reads Agents.md → runs startup protocol ✓
 3. Registry is empty (all values ~, all confidence UNKNOWN) ✓
 4. last_update.json shows NEVER_FETCHED for all domains ✓
@@ -190,7 +190,7 @@ in the entire codebase — no other system is referenced or implied anywhere.
 
 1. Install your preferred AI CLI (Claude Code is recommended — see docs/SETUP.md)
 2. Open a terminal window
-3. Navigate to this project folder: `cd /path/to/immigration-ops`
+3. Navigate to this project folder: `cd /path/to/immos`
 4. Launch the CLI: `claude` (or `gemini` or `codex`)
 5. Tell it what you are trying to do
 
@@ -206,18 +206,18 @@ immediately.
 
 ## Skill Registration — 2026-06-29
 
-Multi-CLI skill registration complete. ImmigrationOps is now
+Multi-CLI skill registration complete. Immos is now
 auto-discoverable from any supported AI CLI.
 
 | File | Type |
 |------|------|
-| `.agents/skills/immigration-ops/SKILL.md` | Canonical — full registration |
-| `.agents/skills/immigration-ops/resources/mode-index.md` | Quick mode reference |
-| `.claude/skills/immigration-ops/SKILL.md` | Thin wrapper — Claude Code |
-| `.antigravitycli/skills/immigration-ops/SKILL.md` | Thin wrapper — Antigravity CLI |
-| `.grok/skills/immigration-ops/SKILL.md` | Thin wrapper — Grok Build CLI |
-| `.kimi/skills/immigration-ops/SKILL.md` | Thin wrapper — Kimi |
-| `.qwen/skills/immigration-ops/SKILL.md` | Thin wrapper — Qwen CLI |
+| `.agents/skills/immos/SKILL.md` | Canonical — full registration |
+| `.agents/skills/immos/resources/mode-index.md` | Quick mode reference |
+| `.claude/skills/immos/SKILL.md` | Thin wrapper — Claude Code |
+| `.antigravitycli/skills/immos/SKILL.md` | Thin wrapper — Antigravity CLI |
+| `.grok/skills/immos/SKILL.md` | Thin wrapper — Grok Build CLI |
+| `.kimi/skills/immos/SKILL.md` | Thin wrapper — Kimi |
+| `.qwen/skills/immos/SKILL.md` | Thin wrapper — Qwen CLI |
 | `.opencode/commands/immigrate.md` | OpenCode command format |
 | `docs/GLOBAL_INSTALL.md` | Global install instructions |
 

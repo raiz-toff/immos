@@ -1,5 +1,5 @@
 # modes/pathway.md
-# ImmigrationOps — Visa Pathway Assessment Mode
+# Immos — Visa Pathway Assessment Mode
 # The strategic core of the system.
 # Version 1.0.0
 

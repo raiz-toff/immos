@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to the ImmigrationOps harness are documented here.
+All notable changes to the Immos harness are documented here.
 This tracks system changes — mode updates, new countries, bug fixes, and
 breaking changes. It is distinct from `knowledge/changelog.md` which
 tracks changes to fetched government data.

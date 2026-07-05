@@ -1,5 +1,5 @@
 # modes/country.md
-# ImmigrationOps — Country Pack Bootstrap Mode
+# Immos — Country Pack Bootstrap Mode
 # Builds a knowledge pack for any country on demand.
 # Version 1.0.0
 

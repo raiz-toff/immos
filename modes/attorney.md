@@ -1,5 +1,5 @@
 # modes/attorney.md
-# ImmigrationOps — Attorney Handoff Package Mode
+# Immos — Attorney Handoff Package Mode
 # Prepares a complete briefing document for a lawyer consultation.
 # Version 1.0.0
 
@@ -195,7 +195,7 @@ IMMIGRATION CONSULTATION BRIEF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Prepared for: [Attorney Name] / [Firm] — or "Immigration Counsel" if unknown
 Client: [Full legal name]
-Prepared by: ImmigrationOps personal preparation system
+Prepared by: Immos personal preparation system
 Date: [YYYY-MM-DD]
 Confidential — prepared for attorney consultation purposes only
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -228,7 +228,7 @@ SECTION 5 — QUESTIONS FOR THIS CONSULTATION
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 END OF BRIEF
-Data sourced from ImmigrationOps registry and evidence inventory.
+Data sourced from Immos registry and evidence inventory.
 All information is client-stated or document-parsed unless noted otherwise.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```

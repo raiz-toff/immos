@@ -1,5 +1,5 @@
 # modes/setback.md
-# ImmigrationOps — Setback Response Mode
+# Immos — Setback Response Mode
 # Activated when the user receives adverse or evidence-request government
 # action: request for more evidence, refusal, procedural-fairness letter,
 # NOID, or equivalent — in ANY country.

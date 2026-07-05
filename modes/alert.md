@@ -1,5 +1,5 @@
 # modes/alert.md
-# ImmigrationOps — Alert Mode
+# Immos — Alert Mode
 # Surfaces deadline alerts and rule changes requiring user attention.
 # Version 1.0.0
 

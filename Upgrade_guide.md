@@ -1,6 +1,6 @@
-# Immigration-Ops — Gap-Closure Upgrade Guide (UPGRADE-GUIDE.md)
-### Hand this file to your AI CLI inside the immigration-ops repo. It audits the existing system and upgrades it phase by phase.
-**Target repo:** raiz-toff/immigration-ops · **Baseline audited:** main @ 2 commits, AGENTS.md v1.0.0
+# Immos — Gap-Closure Upgrade Guide (UPGRADE-GUIDE.md)
+### Hand this file to your AI CLI inside the immos repo. It audits the existing system and upgrades it phase by phase.
+**Target repo:** raiz-toff/immos · **Baseline audited:** main @ 2 commits, AGENTS.md v1.0.0
 
 ---
 
@@ -44,12 +44,12 @@ Place this file in the repo root, open your CLI there, and say:
 **0.3 Fix G2:** add root wrappers `OPENCODE.md`, `QWEN.md`, `GROK.md`, `KIMI.md` — VERBATIM each:
 
 ```
-# Immigration-Ops wrapper
+# Immos wrapper
 All project instructions live in AGENTS.md. Read AGENTS.md now and follow it
 for every task in this repository.
 ```
 
-Verify each `.{cli}/skills/immigration-ops` path resolves to the canonical `.agents/skills/immigration-ops` (symlink or identical copy); repair drift.
+Verify each `.{cli}/skills/immos` path resolves to the canonical `.agents/skills/immos` (symlink or identical copy); repair drift.
 
 **0.4 Privacy audit (G8 part 1):** confirm `.gitignore` covers `registry/`, `data/`, `output/`, `reports/`, `knowledge/*/` (country data), and does NOT cover the `.example`/template files you will add later. Add this rule to AGENTS.md §7 Absolute Boundaries — VERBATIM:
 

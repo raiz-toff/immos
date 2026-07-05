@@ -1,5 +1,5 @@
 ---
-name: immigration-ops
+name: immos
 description: >-
   Immigration preparation assistant. Activate for visa pathway
   assessment, document gap analysis, timeline calculation, document
@@ -10,14 +10,14 @@ description: >-
   Data fetched from USCIS, IRCC, and Home Office — never from
   training data. User data stays local.
 metadata:
-  author: immigration-ops
+  author: immos
   version: 1.0.0
 ---
 
-# Immigration-Ops — Kimi
+# Immos — Kimi
 
 See canonical skill definition at:
-`.agents/skills/immigration-ops/SKILL.md`
+`.agents/skills/immos/SKILL.md`
 
 On activation: read `AGENTS.md`, run startup protocol,
 load `modes/_shared.md` and `modes/_profile.md`, route

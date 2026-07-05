@@ -1,5 +1,5 @@
 # modes/challenge.md
-# ImmigrationOps — Challenge Mode
+# Immos — Challenge Mode
 # Adversarial review — steelmans the case against the user's application.
 # Version 1.0.0
 

@@ -1,5 +1,5 @@
 # modes/scan.md
-# ImmigrationOps — Portal Scan Mode
+# Immos — Portal Scan Mode
 # Proactively fetches and surfaces changes affecting the user's situation.
 # Version 1.0.0
 

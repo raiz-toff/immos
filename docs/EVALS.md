@@ -1,6 +1,6 @@
 # EVALS.md — Behavioral Test Set (G7)
 
-The behavioral contract of Immigration-Ops, expressed as testable cases. Each
+The behavioral contract of Immos, expressed as testable cases. Each
 case names a synthetic state, the input, and a PASS condition tied to a specific
 contract clause. Run in scratch sessions with fresh context per case and the
 synthetic registry state specified. Record runs in `docs/EVAL-RUN-<date>.md`.

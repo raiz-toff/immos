@@ -1,6 +1,6 @@
-# ImmigrationOps
+# Immos
 
-ImmigrationOps is a personal immigration preparation assistant that runs
+Immos is a personal immigration preparation assistant that runs
 locally on your machine. It helps you understand your options, organize
 your documents, track your deadlines, and prepare your applications —
 without replacing you as the decision-maker and without filing anything
@@ -8,7 +8,7 @@ on your behalf.
 
 ---
 
-## What ImmigrationOps Does
+## What Immos Does
 
 It prepares. You decide. You act.
 
@@ -36,10 +36,10 @@ Specifically, it:
 
 ---
 
-## What ImmigrationOps Does Not Do
+## What Immos Does Not Do
 
 **This is not a lawyer and cannot give legal advice.**
-ImmigrationOps can organize facts, explain published requirements, and help
+Immos can organize facts, explain published requirements, and help
 you prepare. It cannot assess the legal implications of your specific history,
 advise you on how to handle a prior refusal or overstay, or make eligibility
 determinations. When a situation requires legal judgment, it will tell you
@@ -47,12 +47,12 @@ clearly and recommend you consult an immigration attorney.
 
 **It does not file anything on your behalf.**
 No government portals. No submissions. No automated form filings.
-ImmigrationOps prepares everything. You review it, you decide, you submit.
+Immos prepares everything. You review it, you decide, you submit.
 This is intentional — your immigration applications require your direct
 authorization and carry your name. They should be yours.
 
 **Its accuracy depends on what you tell it.**
-ImmigrationOps builds a picture of your situation over time through
+Immos builds a picture of your situation over time through
 conversation. The more accurately you describe your situation, the more
 accurate and useful its guidance will be. It will tell you when it needs
 more information to give you a reliable answer.
@@ -62,7 +62,7 @@ more information to give you a reliable answer.
 ## The Core Philosophy
 
 Immigration errors compound. A wrong move today can create barriers for years.
-ImmigrationOps prioritizes accuracy over speed — it fetches current information
+Immos prioritizes accuracy over speed — it fetches current information
 from official government sources rather than relying on potentially outdated
 training data. It acknowledges what it does not know rather than guessing.
 It is honest about complexity rather than giving comfortable but imprecise answers.
@@ -74,13 +74,13 @@ It is honest about complexity rather than giving comfortable but imprecise answe
 See [docs/SETUP.md](docs/SETUP.md) for complete setup instructions.
 
 **Quick start:**
-1. Clone the repository: `git clone https://github.com/raiz-toff/immigration-ops.git`
-2. Enter the directory: `cd immigration-ops`
+1. Clone the repository: `git clone https://github.com/raiz-toff/immos.git`
+2. Enter the directory: `cd immos`
 3. Install your preferred AI CLI (Claude Code, Gemini CLI, or Codex CLI)
 4. Launch it: `claude` / `gemini` / `codex`
-5. Start talking — ImmigrationOps will guide you from there
+5. Start talking — Immos will guide you from there
 
-On first launch, ImmigrationOps will introduce itself and begin learning
+On first launch, Immos will introduce itself and begin learning
 about your situation. You do not need to fill in any forms or configure
 anything. Just describe what you are trying to do.
 
@@ -90,7 +90,7 @@ anything. Just describe what you are trying to do.
 
 Everything stays on your machine. Always.
 
-ImmigrationOps stores your information in local files:
+Immos stores your information in local files:
 - `registry/registry.yml` — your profile
 - `data/cases.md` — your active cases
 - `knowledge/` — fetched official data
@@ -108,7 +108,7 @@ for the complete data contract.
 
 ## How the System Learns
 
-ImmigrationOps builds its knowledge of your situation gradually through
+Immos builds its knowledge of your situation gradually through
 conversation. It does not start with a form to fill — it starts with a
 question: what are you trying to do?
 
@@ -127,23 +127,23 @@ it becomes.
 ## How to Get the Most Out of It
 
 **Be specific.** General questions get general answers. The more detail
-you share about your actual situation, the more precisely ImmigrationOps
+you share about your actual situation, the more precisely Immos
 can help you.
 
-**Correct it when it's wrong.** If ImmigrationOps has a date wrong or
+**Correct it when it's wrong.** If Immos has a date wrong or
 misunderstood your situation, say so. It will update its records immediately.
 
-**Check the source.** Every factual immigration claim ImmigrationOps makes
+**Check the source.** Every factual immigration claim Immos makes
 comes with an inline citation: `[VERIFIED | source.gov | date]`. If you
 want to verify something independently, the source is always right there.
 
 **Use it for complex documents.** Draft letters, personal statements, and
-cover letters take significant time. ImmigrationOps can produce a draft
+cover letters take significant time. Immos can produce a draft
 that you then personalize — this is often much faster than starting blank.
 
 **Do not rely on it alone for complex situations.** If your situation
 involves prior refusals, immigration violations, criminal history, or
-other significant complexity, ImmigrationOps will tell you when you need
+other significant complexity, Immos will tell you when you need
 an immigration attorney. When it does: believe it and find one.
 
 ---

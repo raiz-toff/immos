@@ -73,7 +73,7 @@ the previous value is preserved there.
 Manually edit the field back to the correct value and remove the
 `conflict:` block once resolved.
 
-**Prevention:** Turn on git tracking for your immigration-ops folder.
+**Prevention:** Turn on git tracking for your immos folder.
 Even though `registry/registry.yml` is gitignored (it should never
 be pushed), git still tracks LOCAL changes — you can always revert
 to any previous local state. Run `git init` in the project root
@@ -280,12 +280,12 @@ This is what you do before sharing the project or before uninstalling.
 
 ```bash
 # 1. Back up everything (optional but recommended)
-mkdir -p ../immigration-ops-backup-$(date +%Y%m%d)
-cp registry/registry.yml ../immigration-ops-backup-$(date +%Y%m%d)/
-cp evidence.md ../immigration-ops-backup-$(date +%Y%m%d)/
-cp data/cases.md ../immigration-ops-backup-$(date +%Y%m%d)/
-cp -r reports/ ../immigration-ops-backup-$(date +%Y%m%d)/
-cp -r output/ ../immigration-ops-backup-$(date +%Y%m%d)/
+mkdir -p ../immos-backup-$(date +%Y%m%d)
+cp registry/registry.yml ../immos-backup-$(date +%Y%m%d)/
+cp evidence.md ../immos-backup-$(date +%Y%m%d)/
+cp data/cases.md ../immos-backup-$(date +%Y%m%d)/
+cp -r reports/ ../immos-backup-$(date +%Y%m%d)/
+cp -r output/ ../immos-backup-$(date +%Y%m%d)/
 
 # 2. Remove all personal data
 rm registry/registry.yml
@@ -332,7 +332,7 @@ unclosed strings, wrong indentation, or invalid characters.
 
 If none of these procedures resolve the issue, the fastest path
 is to open the relevant file directly in a text editor. All
-ImmigrationOps data files are plain text — YAML or Markdown.
+Immos data files are plain text — YAML or Markdown.
 They can be read and edited without any special tools.
 
 If the agent itself is behaving unexpectedly (routing to wrong modes,

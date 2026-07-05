@@ -1,4 +1,4 @@
-# SETUP.md — ImmigrationOps Technical Setup Guide
+# SETUP.md — Immos Technical Setup Guide
 # Version 1.0.0
 
 ---
@@ -6,7 +6,7 @@
 ## Prerequisites
 
 You need one of the following AI CLI tools installed on your machine.
-ImmigrationOps works with all three:
+Immos works with all three:
 
 ### Option A — Claude Code (Recommended)
 Claude Code is Anthropic's official CLI. It has strong file read/write
@@ -29,13 +29,13 @@ OpenAI's Codex or assistant-based CLI.
 
 ## Installation
 
-ImmigrationOps is a directory-based system. There is nothing to install
+Immos is a directory-based system. There is nothing to install
 beyond cloning or copying the project folder to your machine.
 
 **Step 1:** Ensure the project folder is on your local machine.
 You should have this file at:
 ```
-immigration-ops/docs/SETUP.md
+immos/docs/SETUP.md
 ```
 
 **Step 2:** Verify the directory structure is complete.
@@ -53,7 +53,7 @@ and the directories `modes/`, `registry/`, `knowledge/`, `data/`, `output/`,
 
 ## Configuration
 
-ImmigrationOps does not require configuration before first use.
+Immos does not require configuration before first use.
 
 **Optional pre-configuration:**
 If you already know your countries of interest and visa categories,
@@ -70,7 +70,7 @@ through conversation.
 
 **API Keys:**
 Your AI CLI requires its own API key/credentials — configure those
-in the CLI's own settings, not here. ImmigrationOps does not handle
+in the CLI's own settings, not here. Immos does not handle
 API keys.
 
 ---
@@ -79,19 +79,19 @@ API keys.
 
 **Claude Code:**
 ```bash
-cd /path/to/immigration-ops
+cd /path/to/immos
 claude
 ```
 
 **Gemini CLI:**
 ```bash
-cd /path/to/immigration-ops
+cd /path/to/immos
 gemini
 ```
 
 **Codex / OpenAI:**
 ```bash
-cd /path/to/immigration-ops
+cd /path/to/immos
 codex
 ```
 
@@ -120,7 +120,7 @@ particular way. The agent will take it from there.
 ## Troubleshooting
 
 ### Problem: "I don't see any output after launching"
-Check that you launched the CLI from inside the `immigration-ops` directory.
+Check that you launched the CLI from inside the `immos` directory.
 The CLI needs to be able to read `AGENTS.md` and the other project files.
 
 ### Problem: "The agent doesn't seem to know my country/visa"

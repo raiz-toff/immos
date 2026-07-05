@@ -1,4 +1,4 @@
-# IMMIGRATION-OPS — Codex / OpenAI Agents
+# IMMOS — Codex / OpenAI Agents
 # Version 1.0.0
 
 Read `AGENTS.md` for all project instructions, behavioral rules,

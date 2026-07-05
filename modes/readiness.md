@@ -1,5 +1,5 @@
 # modes/readiness.md
-# ImmigrationOps — Application Readiness Score Mode
+# Immos — Application Readiness Score Mode
 # Concrete 0–100 progress tracking. Always ends with three next steps.
 # Version 1.0.0
 
